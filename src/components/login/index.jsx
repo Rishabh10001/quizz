@@ -14,7 +14,7 @@ const Login = () => {
     {
         // const retrievedUser = JSON.parse(localStorage.getItem(userExist));
         console.log(retrievedUser)
-        if(retrievedUser.username && retrievedUser.password === passwordExist)
+        if(retrievedUser?.username && retrievedUser?.password === passwordExist)
         {
           logUser()
         }
