@@ -15,8 +15,8 @@ const Login = () => {
     {
         console.log(retrievedUser)
         if(retrievedUser?.email && retrievedUser?.password === passwordExist)
-        {
-          logUser()
+        {  
+          logUser() 
         }
         else{
           alert("Wrong credentials")
@@ -24,9 +24,9 @@ const Login = () => {
     }
 
     const logUser = () => {
-      if(retrievedUser.role === "teacher")
+      if(retrievedUser.role === "faculty")
       {
-        navigate("/question-form")
+        navigate("/question-form") 
       }
     }
 
