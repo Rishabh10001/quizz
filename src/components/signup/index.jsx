@@ -30,7 +30,11 @@ const Registration = () => {
     }
     
     const handleSignUp = () => {
-        if (password === confirmpassword) {
+        if(JSON.parse(localStorage.getItem(email)))
+        {
+            alert("the entered email already exists")
+        }
+        else if (password === confirmpassword) {
             add()
         } else {
             alert("Passwords do not match")
