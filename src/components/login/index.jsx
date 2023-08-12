@@ -31,27 +31,29 @@ const Login = () => {
     }
 
   return (
-    <form>
-      <input 
-        type="email" 
-        placeholder="email"
-        required
-        onChange={(e) => setEmailExist(e.target.value)}
-      />
-      <input 
-        type = "password"
-        placeholder = "Password" 
-        name = "Password"
-        required
-        onChange={(e) => setPasswordExist(e.target.value)}
-      />
-      <input 
-        type = "button" 
-        value = "Login"
-        onClick={handleLogin}
-      />
-    </form>
-  )
+      <div class = "signin-container">
+        <form>
+        <input 
+          type="email" 
+          placeholder="Email Id"
+          required
+          onChange={(e) => setEmailExist(e.target.value)}
+        />
+        <input 
+          type = "password"
+          placeholder = "Password" 
+          name = "Password"
+          required
+          onChange={(e) => setPasswordExist(e.target.value)}
+        />
+        <input 
+          type = "button" 
+          value = "Login"
+          onClick={handleLogin}
+        />
+      </form>
+    </div>
+    )
 }
 
 export default Login

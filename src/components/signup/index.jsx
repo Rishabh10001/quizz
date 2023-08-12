@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './style.css'
 
 const Registration = () => {
     const [username, setUsername] = useState("");
@@ -36,50 +37,48 @@ const Registration = () => {
         }
     }
 
-  return (
-    <>
-    <h2>Registration</h2>
-    <form action="">
-        <input 
-            type="text" 
-            placeholder='username'
-            name='username'
-            required
-            onChange={(e) => setUsername(e.target.value)}
-        />
-        <input 
-            type="email" 
-            placeholder='enter email id'
-            required
-            onChange={(e) => setEmail(e.target.value)}
-        />
-        <input 
-            type="password" 
-            placeholder='password'
-            name='password'
-            required
-            onChange={(e) => setPassword(e.target.value)}
-        />
-        <input 
-            type="password" 
-            placeholder='confirm-password'
-            required
-            name='confirm-password'
-            onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
-            <option value="." disabled selected >--Select the role--</option>
-            <option value="teacher">Teacher</option>
-            <option value="student">Student</option>
-        </select>
-        <input 
-            type="button" 
-            value='SignUp'
-            onClick={handleSignUp}
-        />
-        <h3>Existing User</h3>
-        <a href="/login"><p className="link">Login Here!</p></a>
-    </form>
+    return (
+        <>
+        <div class="signup-container">
+        <h2>Registration</h2>
+        <form>
+            <input 
+                type="text" 
+                placeholder="Username" 
+                required 
+                onChange={(e) => setUsername (e.target.value)}
+            />
+            <input 
+                type="email" 
+                placeholder="Email ID" 
+                required
+                onChange={(e) => setEmail (e.target.value)}                
+            />
+            <input 
+                type="password" 
+                placeholder="Password" 
+                required
+                onChange={(e) => setPassword (e.target.value)}    
+            />
+            <input 
+                type="password" 
+                placeholder="Confirm Password" 
+                required
+                onChange={(e) => setConfirmPassword (e.target.value)}
+            />
+            <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
+                <option value="." disabled selected>--Select Role--</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+            <input 
+                type="button"
+                value="Signup"
+                onClick={handleSignUp}
+            />
+        </form>
+        <p class="sign-in-link">Already have an account? <a href="/login">Sign In</a></p>
+    </div>
     </>
   )
 }
