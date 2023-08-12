@@ -6,6 +6,7 @@ const Registration = () => {
     const [password, setPassword] = useState("");
     const [confirmpassword, setConfirmPassword] = useState("")
     const [role, setRole] = useState("");
+    const [email, setEmail] = useState("");
     const navigate = useNavigate();
 
     const add = () => {
@@ -14,11 +15,12 @@ const Registration = () => {
         // let id = 'id-' + new Date().getTime()
         var user = {
             username : username,
+            email : email,
             password : password,
             role : role,
         }
-        localStorage.setItem(username, JSON.stringify(user))
-        var retrievedUser = JSON.parse(localStorage.getItem(username));
+        localStorage.setItem(email, JSON.stringify(user))
+        var retrievedUser = JSON.parse(localStorage.getItem(email));
         console.log(retrievedUser.username);
         console.log(retrievedUser.password);
         console.log(retrievedUser.role);
@@ -44,6 +46,12 @@ const Registration = () => {
             name='username'
             required
             onChange={(e) => setUsername(e.target.value)}
+        />
+        <input 
+            type="email" 
+            placeholder='enter email id'
+            required
+            onChange={(e) => setEmail(e.target.value)}
         />
         <input 
             type="password" 

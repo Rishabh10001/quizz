@@ -6,16 +6,15 @@ import "./style.css"
 const Login = () => {
 
     const navigate = useNavigate();
-    const [userExist, setUserExist] = useState("");
+    const [emailExist, setEmailExist] = useState("");
     const [passwordExist, setPasswordExist] = useState("");
 
-    const retrievedUser = JSON.parse(localStorage.getItem(userExist));
+    const retrievedUser = JSON.parse(localStorage.getItem(emailExist));
 
     const handleLogin = () => 
     {
-        // const retrievedUser = JSON.parse(localStorage.getItem(userExist));
         console.log(retrievedUser)
-        if(retrievedUser?.username && retrievedUser?.password === passwordExist)
+        if(retrievedUser?.email && retrievedUser?.password === passwordExist)
         {
           logUser()
         }
@@ -34,11 +33,10 @@ const Login = () => {
   return (
     <form>
       <input 
-        type = "text" 
-        placeholder = "Username"
-        name = "Username"
+        type="email" 
+        placeholder="email"
         required
-        onChange={(e) => setUserExist(e.target.value)}
+        onChange={(e) => setEmailExist(e.target.value)}
       />
       <input 
         type = "password"
