@@ -31,7 +31,7 @@ const Login = () => {
     }
 
   return (
-      <div class = "signin-container">
+      <div className = "signin-container">
         <form>
         <input 
           type="email" 
@@ -49,7 +49,7 @@ const Login = () => {
         <input 
           type = "button" 
           value = "Login"
-          onClick={handleLogin}
+          onClick={handleLogin()}
         />
       </form>
     </div>
