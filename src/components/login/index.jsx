@@ -49,7 +49,7 @@ const Login = () => {
         <input 
           type = "button" 
           value = "Login"
-          onClick={handleLogin()}
+          onClick={handleLogin}
         />
       </form>
     </div>
