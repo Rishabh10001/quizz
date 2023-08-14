@@ -28,6 +28,10 @@ const Login = () => {
       {
         navigate("/question-form") 
       }
+      if(retrievedUser.role === "student")
+      {
+        navigate("/questions")
+      }
     }
 
   return (

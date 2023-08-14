@@ -1,7 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Questions = ({questions}) => {
-  
+const navigate =  useNavigate()
+const AddQuestion = () => {
+  navigate("/question-form")
+}
   return (
     <div>
       {
@@ -15,7 +19,12 @@ const Questions = ({questions}) => {
           correct answer {question.answer}
         </div>
       ))
-      }
+    }
+    <input 
+      type='button'
+      value="Add Question" 
+      onClick={ AddQuestion }
+    />
     </div>
   )
 }
