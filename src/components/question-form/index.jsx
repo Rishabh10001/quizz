@@ -12,14 +12,17 @@ const QuestionForm = ({addQuestion}) => {
 
     const navigate = useNavigate();
     const add = () =>{
-        addQuestion({
+        const newQuestion = {
             question,
             option1,
             option2,
             option3,
             option4,
             answer
-        })
+        }
+        addQuestion(newQuestion)
+        localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
+        // console.log(newQuestion.question);
         navigate("/questions")
     }
 
