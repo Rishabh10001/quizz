@@ -5,6 +5,7 @@ import Questions from "./components/questions";
 import Header from "./components/header";
 import Registration from "./components/signup";
 import Login from "./components/login";
+import Opening from "./components/opening";
 // import quizList from "./components/quiz-list";
 
 const quizzes = [
@@ -29,8 +30,9 @@ const App = ()=>{
       <Routes>
         
         {/* <Route path="/" element = {<Home />} /> */}
+        <Route exact path="/" element = {<Opening />} />
         <Route path="/login" element = {<Login />} />
-        <Route path="/" element = {<Registration />} />
+        <Route path="/signup" element = {<Registration />} />
         <Route path="/questions" element = {<Questions questions={questions} />} />
         <Route path="/question-form" element = {<QuestionForm addQuestion={addQuestion} />} />
         <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/>
