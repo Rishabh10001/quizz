@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Question } from '../../modals/Question';
 
 const QuestionForm = ({addQuestion}) => {
 
@@ -8,20 +9,31 @@ const QuestionForm = ({addQuestion}) => {
     const [option2, setOption2] = useState("");
     const [option3, setOption3] = useState("");
     const [option4, setOption4] = useState("");
-    const [answer, setAnswer] = useState("");
+    const [answer, setAnswer] = useState(0);
+    const [quiz, setQuiz] = useState(null)
+
+    const quizes = localStorage.getItem("QUIZES")
 
     const navigate = useNavigate();
     const add = () =>{
-        const newQuestion = {
-            question,
-            option1,
-            option2,
-            option3,
-            option4,
-            answer
-        }
-        addQuestion(newQuestion)
-        localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
+
+        const newlyQuestion = new Question(question, "", 10, [option1, option2, option3,option4], answer)
+        quiz.questions.push(newlyQuestion)
+        localStorage.setItem("QUIZES", quizes)
+
+        // const newQuestion = {
+        //     question,
+        //     option1,
+        //     option2,
+        //     option3,
+        //     option4,
+        //     answer
+        // }
+        // addQuestion(newQuestion)
+        
+
+        // localStorage.setItem("QUESTIONS1", JSON.stringify({[newQuestion.question] : newQuestion}))
+        // localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
         // console.log(newQuestion.question);
         navigate("/questions")
     }
@@ -62,10 +74,15 @@ const QuestionForm = ({addQuestion}) => {
         />
         <select name="correctAnswer" id="correctAnswer"  onChange={(e) => setAnswer(e.target.value)}>
             <option value="" disabled selected>--Select the correct answer--</option>
-            <option value={option1}>{option1}</option>
-            <option value={option2}>{option2}</option>
-            <option value={option3}>{option3}</option>
-            <option value={option4}>{option4}</option>
+            <option value={1}>{option1}</option>
+            <option value={2}>{option2}</option>
+            <option value={3}>{option3}</option>
+            <option value={4}>{option4}</option>
+        </select>
+        <select onChange={e => setQuiz(e.target.value)}>
+            {
+                quizes.map(quiz => <option value={quiz}>quiz.title</option>)
+            }
         </select>
         <input 
             type="button" 
