@@ -6,6 +6,12 @@ const navigate =  useNavigate()
 const AddQuestion = () => {
   navigate("/question-form")
 }
+
+  // var ques  = {
+  //   question : question,
+  //   answer:answer
+  // };
+  localStorage.setItem()
   return (
     <div>
       {
