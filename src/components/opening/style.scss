@@ -7,6 +7,20 @@
   html, body {
     height: 100%;
   }
+
+  span nav__item-text{
+    align-items: center;
+    text-align: justify;
+    justify-content: space-between;
+  }
+
+  a{
+    text-decoration:solid;
+    color:blue ;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+  }
   
   body {
     &:before,
@@ -41,7 +55,7 @@
   
   $itemsLeftPad: 20px;
   $itemsRightPad: $itemsLeftPad + $btnSize;
-  $itemWidth: 70px;
+  $itemWidth: 25px;
   $navItemsWidth: $itemsLeftPad + $itemsRightPad + $itemWidth * $numOfItems;
   
   $textAT: $navAT - $textDelayStep * ($numOfItems - 1);
