@@ -9,8 +9,6 @@
   }
 
   span nav__item-text{
-    align-items: center;
-    text-align: justify;
     justify-content: space-between;
   }
 
@@ -37,7 +35,7 @@
   }
   
   /* MAIN VARIABLES FOR CUSTOMIZATION */
-  $numOfItems: 4;
+  $numOfItems: 2;
   $navAT: 1s;
   $textDelayStep: 0.1s;
   /* -------------------------------- */
