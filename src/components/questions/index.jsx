@@ -11,7 +11,7 @@ const AddQuestion = () => {
   //   question : question,
   //   answer:answer
   // };
-  localStorage.setItem()
+  // localStorage.setItem()
   return (
     <div>
       {

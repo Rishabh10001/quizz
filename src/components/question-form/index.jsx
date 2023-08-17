@@ -12,13 +12,12 @@ const QuestionForm = ({addQuestion}) => {
     const [answer, setAnswer] = useState(0);
     const [quiz, setQuiz] = useState(null)
 
-    const quizes = localStorage.getItem("QUIZES")
+    const quizes = JSON.parse(localStorage.getItem("QUIZES"))
 
     const navigate = useNavigate();
     const add = () =>{
-
-        const newlyQuestion = new Question(question, "", 10, [option1, option2, option3,option4], answer)
-        quiz.questions.push(newlyQuestion)
+        const indexMatch = quizes.findIndex(q => q.id === quiz.id)
+        quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
         localStorage.setItem("QUIZES", quizes)
 
         // const newQuestion = {
@@ -81,7 +80,7 @@ const QuestionForm = ({addQuestion}) => {
         </select>
         <select onChange={e => setQuiz(e.target.value)}>
             {
-                quizes.map(quiz => <option value={quiz}>quiz.title</option>)
+                quizes.map(quiz => <option key={quiz.id} value={quiz}>quiz.title</option>)
             }
         </select>
         <input 
