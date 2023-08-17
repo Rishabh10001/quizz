@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
 
-const QuestionForm = ({addQuestion}) => {
+const QuestionForm = () => {
 
     const [question, setQuestion] = useState("");
     const [option1, setOption1] = useState("");
