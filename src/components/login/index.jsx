@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import {LogIn,Heading,SignInContainer,SignInForm,SignInInput,SignInButton,Button,SignUpLink,SignUpAnchor} from "./style";
+import {LogIn,Heading,SignInContainer,SignInForm,SignInInput,SignUpLink,SignUpAnchor} from "./style";
 
 const Login = () => {
 
@@ -53,15 +53,11 @@ const Login = () => {
           required
           onChange={(e) => setPasswordExist(e.target.value)}
         />
-        <SignInButton>
-          <Button>
-          <input 
-            type = "button" 
-            value = "Login"
-            onClick={handleLogin}
-          />
-          </Button>
-        </SignInButton>
+        <button
+          type = "button"
+          onClick={handleLogin}>
+            Login
+        </button>
       </form>
       </SignInForm>
       <SignUpLink>
