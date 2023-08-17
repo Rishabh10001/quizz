@@ -25,7 +25,7 @@ const Registration = () => {
         console.log(retrievedUser.username);
         console.log(retrievedUser.password);
         console.log(retrievedUser.role);
-        navigate("/login")
+        navigate("/")
         // localStorage.clear();
     }
     
@@ -81,6 +81,7 @@ const Registration = () => {
                 onClick={handleSignUp}
             />
         </form>
+        <a href="/">Login</a>
     </div>
     </>
   )
