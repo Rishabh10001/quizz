@@ -5,13 +5,11 @@ import Questions from "./components/questions";
 import Header from "./components/header";
 import Registration from "./components/signup";
 import Login from "./components/login";
-<<<<<<< HEAD
 // import Opening from "./components/opening";
-=======
-import Opening from "./components/opening";
-import CreateQuiz from "./components/createQuiz";
->>>>>>> 213d3909d1da2f6ae251f9f77e71a64d5ffcfeb5
 // import quizList from "./components/quiz-list";
+import CreateQuiz from "./components/createQuiz"
+import Footer from "./components/footer";
+
 
 const quizzes = [
   {
@@ -33,16 +31,14 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        
-        {/* <Route path="/" element = {<Home />} /> */}
-        {/* <Route exact path="/" element = {<Opening />} /> */}
         <Route path="/" element = {<Login />} />
         <Route path="/signup" element = {<Registration />} />
         <Route path="/questions" element = {<Questions questions={questions} />} />
         <Route path="/question-form" element = {<QuestionForm  />} />
-        <Route path="/create-quiz" element = {<CreateQuiz />} />
+        <Route path="/create-quiz" element = { <CreateQuiz />} />
         <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

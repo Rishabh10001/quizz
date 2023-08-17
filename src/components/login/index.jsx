@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import "./style.css"
-
+import {LogIn,Heading,SignInContainer,SignInForm,SignInInput,SignInButton,Button,SignUpLink,SignUpAnchor} from "./style";
 
 const Login = () => {
 
@@ -35,30 +34,42 @@ const Login = () => {
     }
 
   return (
-      <div className = "signin-container">
-        <h2>Login</h2>
+    <LogIn>
+      <SignInContainer>
+        <div className = "signin-container">
+        <Heading><h2>Login</h2></Heading>
+        <SignInForm>
         <form>
-        <input 
+        <SignInInput
           type="email" 
           placeholder="Email Id"
           required
           onChange={(e) => setEmailExist(e.target.value)}
         />
-        <input 
+        <SignInInput      
           type = "password"
           placeholder = "Password" 
           name = "Password"
           required
           onChange={(e) => setPasswordExist(e.target.value)}
         />
-        <input 
-          type = "button" 
-          value = "Login"
-          onClick={handleLogin}
-        />
+        <SignInButton>
+          <Button>
+          <input 
+            type = "button" 
+            value = "Login"
+            onClick={handleLogin}
+          />
+          </Button>
+        </SignInButton>
       </form>
-      <p class="sign-up-link">Already have an account? <a href="/signup">Sign Up</a></p>
+      </SignInForm>
+      <SignUpLink>
+        <p class="sign-up-link">Already have an account? <SignUpAnchor><a href="/signup">Sign Up</a></SignUpAnchor></p>
+      </SignUpLink>
     </div>
+    </SignInContainer>
+    </LogIn>
     )
 }
 
