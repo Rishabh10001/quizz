@@ -38,7 +38,7 @@ input, select, button {
 
 select {
     appearance: none;
-    background: url('https://imgs.search.brave.com/4FBQro2KbFp2g2DAOGVfgdmWhT3QHDuj1sNqKW8sX-Y/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4z/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvZmVhdGhlci01/LzI0L2Fycm93LWRv/d24tMTI4LnBuZw') no-repeat right;
+    background: url('https://imgs.search.brave.com/4FBQro2KbFp2g2DAOGVfgdmWhT3QHDuj1sNqKW8sX-Y/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4z/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvZmVhdGhlci01/LzI0L2Fycm93LWRv/d24tMTI4LnBuZw') no-repeat 98% center;
     background-size: 20px;
     padding-right: 30px;
     background-color: #D6EFFF;

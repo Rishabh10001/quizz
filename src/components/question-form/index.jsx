@@ -13,6 +13,7 @@ const QuestionForm = () => {
     const [quiz, setQuiz] = useState(null)
 
     const quizes = JSON.parse(localStorage.getItem("QUIZES"))
+    console.log(quizes)
 
     const navigate = useNavigate();
     const add = () =>{
@@ -80,7 +81,7 @@ const QuestionForm = () => {
         </select>
         <select onChange={e => setQuiz(e.target.value)}>
             {
-                quizes.map(quiz => <option key={quiz.id} value={quiz}>quiz.title</option>)
+                quizes.map(quiz => <option key={quiz.id} value={quiz}>{quiz.title}</option>)
             }
         </select>
         <input 

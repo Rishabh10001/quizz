@@ -5,12 +5,8 @@ import Questions from "./components/questions";
 import Header from "./components/header";
 import Registration from "./components/signup";
 import Login from "./components/login";
-<<<<<<< HEAD
-// import Opening from "./components/opening";
-=======
-import Opening from "./components/opening";
 import CreateQuiz from "./components/createQuiz";
->>>>>>> 213d3909d1da2f6ae251f9f77e71a64d5ffcfeb5
+import { useEffect } from "react";
 // import quizList from "./components/quiz-list";
 
 const quizzes = [
@@ -28,6 +24,11 @@ const App = () => {
     const addQuestion = (question) =>{
       setQuestions([...questions,question])
     }
+
+    useEffect(() => {        
+        localStorage.setItem("QUIZES", JSON.stringify(JSON.parse(localStorage.getItem("QUIZES")) || []))
+    },[])
+
 
   return(
     <BrowserRouter>
