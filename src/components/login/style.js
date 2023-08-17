@@ -16,9 +16,10 @@ const SignInContainer = styled.div`
   background-color: #ffffff;
   width: 100%;
   max-width: 40rem;
-  padding: 3rem;
+  padding: 1.8rem;
   margin: auto;
   border-radius: 1.5rem;
+  margin-bottom: 2rem;  
   width: fit-content;
   box-shadow: 0.5rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
 `;
