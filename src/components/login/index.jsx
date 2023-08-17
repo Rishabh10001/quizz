@@ -26,7 +26,7 @@ const Login = () => {
     const logUser = () => {
       if(retrievedUser.role === "faculty")
       {
-        navigate("/question-form") 
+        navigate("/create-quiz") 
       }
       if(retrievedUser.role === "student")
       {
