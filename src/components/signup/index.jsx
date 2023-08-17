@@ -71,7 +71,7 @@ const Registration = () => {
                 onChange={(e) => setConfirmPassword (e.target.value)}
             />
             <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
-                <option value="." disabled selected>--Select Role--</option>
+                <option value="" disabled selected>--Select Role--</option>
                 <option value="student">Student</option>
                 <option value="faculty">Faculty</option>
             </select>
@@ -81,7 +81,6 @@ const Registration = () => {
                 onClick={handleSignUp}
             />
         </form>
-        <p class="sign-in-link">Already have an account? <a href="/login">Sign In</a></p>
     </div>
     </>
   )

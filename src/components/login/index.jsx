@@ -36,6 +36,7 @@ const Login = () => {
 
   return (
       <div className = "signin-container">
+        <h2>Login</h2>
         <form>
         <input 
           type="email" 
@@ -56,6 +57,7 @@ const Login = () => {
           onClick={handleLogin}
         />
       </form>
+      <p class="sign-up-link">Already have an account? <a href="/signup">Sign Up</a></p>
     </div>
     )
 }

@@ -8,7 +8,16 @@
       {
         "ignore": [
           "min-width: fit-content",
-          "width: fit-content"
+          "width: fit-content",
+          "position: sticky"
+        ]
+      }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "meta[name=theme-color]"
         ]
       }
     ]

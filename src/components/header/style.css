@@ -1,93 +1,13 @@
-h1{
-    position: fixed;
-    text-align: center;
-    color: #FE654F;
-    background-color: #FED99B;
-    font-size: 30px;
-    padding:25px ;
-    margin : auto;
-    width:100%;
-    font-size:72px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    top: 0;
-    left: 0;
-    width: 100%;
+#head{
+  color: black;
+  width: auto;
+  font-size: 2rem; 
+  justify-content: center;
+  align-items: center;
+  max-width: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-top: 0rem;
+  text-align: center;
 }
-
-
-
-.floating {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50rem;
-    text-align: center;
-	animation-name: floating;
-	animation-duration: 3s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
-	margin-left: 22.5rem;
-	margin-top: 0.5rem;
-}
-
-@keyframes floating {
-	0% { transform: translate(0, 0px); }
-	50% { transform: translate(0, 15px); }
-	100% { transform: translate(0, -0px); }
-}
-
-
-html {
-    height:100%;
-  }
-  
-  body {
-    margin:0;
-  }
-  
-  .bg {
-    animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
-    top:0;
-    z-index:-1;
-  }
-  
-  .bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
-  }
-  
-  .bg3 {
-    animation-duration:5s;
-  }
-  
-  .content {
-    background-color:rgba(255,255,255,.8);
-    border-radius:.25em;
-    box-shadow:0 0 .25em rgba(0,0,0,.25);
-    box-sizing:border-box;
-    left:50%;
-    padding:10vmin;
-    position:fixed;
-    text-align:center;
-    top:50%;
-    transform:translate(-50%, -50%);
-  }
-  
-  h1 {
-    font-family:monospace;
-  }
-  
-  @keyframes slide {
-    0% {
-      transform:translateX(-25%);
-    }
-    100% {
-      transform:translateX(25%);
-    }
-  }
