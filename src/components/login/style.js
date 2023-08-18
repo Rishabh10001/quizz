@@ -8,7 +8,7 @@ const LogIn = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 3rem;
+  font-size: 1.5rem;
   text-align: center;
 `;
 
@@ -19,7 +19,6 @@ const SignInContainer = styled.div`
   padding: 1.8rem;
   margin: auto;
   border-radius: 1.5rem;
-  margin-bottom: 2rem;  
   width: fit-content;
   box-shadow: 0.5rem 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
 `;
@@ -54,8 +53,6 @@ export {
   SignInContainer,
   SignInForm,
   SignInInput,
-  // SignInButton,
-  // Button,
   SignUpLink,
   SignUpAnchor,
 };

@@ -5,6 +5,7 @@ const Wrapper = styled.footer `
     text-align: center;
     font-size: 0.8rem;
     position: fixed;
+    margin-top: 3rem;
     bottom: 0;
     left: 0;
     right: 0;
