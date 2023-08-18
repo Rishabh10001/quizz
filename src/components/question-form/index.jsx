@@ -10,16 +10,26 @@ const QuestionForm = () => {
     const [option3, setOption3] = useState("");
     const [option4, setOption4] = useState("");
     const [answer, setAnswer] = useState(0);
-    const [quiz, setQuiz] = useState(null)
+    // const [quiz, setQuiz] = useState(null)
+    const [quiz, setQuiz] = useState({ id: null, title: "", questions: [] });
+
 
     const quizes = JSON.parse(localStorage.getItem("QUIZES"))
     console.log(quizes)
 
     const navigate = useNavigate();
     const add = () =>{
-        const indexMatch = quizes.findIndex(q => q.id === quiz.id)
-        quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
-        localStorage.setItem("QUIZES", quizes)
+
+        const newQuestion = new Question(question, [option1, option2, option3, option4], answer);
+        const updatedQuiz = { ...quiz, questions: [...quiz.questions, newQuestion] };
+
+        const indexMatch = quizes.findIndex(q => q.id === quiz.id);
+        quizes[indexMatch] = updatedQuiz;
+        localStorage.setItem("QUIZES", JSON.stringify(quizes));
+
+        // const indexMatch = quizes.findIndex(q => q.id === quiz.id)
+        // quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
+        // localStorage.setItem("QUIZES", quizes)
 
         // const newQuestion = {
         //     question,
@@ -35,7 +45,7 @@ const QuestionForm = () => {
         // localStorage.setItem("QUESTIONS1", JSON.stringify({[newQuestion.question] : newQuestion}))
         // localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
         // console.log(newQuestion.question);
-        navigate("/questions")
+        // navigate("/questions")
     }
 
   return (

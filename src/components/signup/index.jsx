@@ -1,44 +1,61 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css'
+import axios from 'axios';
 
 const Registration = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmpassword, setConfirmPassword] = useState("")
     const [role, setRole] = useState("");
-    const [email, setEmail] = useState("");
+    const [contact, setContact] = useState("");
     const navigate = useNavigate();
 
-    const add = () => {
-        // localStorage.setItem(username,password)
-        // console.log(localStorage.getItem(username))
-        // let id = 'id-' + new Date().getTime()
-        var user = {
-            username : username,
-            email : email,
-            password : password,
-            role : role,
-        }
-        localStorage.setItem(email, JSON.stringify(user))
-        var retrievedUser = JSON.parse(localStorage.getItem(email));
-        console.log(retrievedUser.username);
-        console.log(retrievedUser.password);
-        console.log(retrievedUser.role);
-        navigate("/")
-        // localStorage.clear();
-    }
+    // const add = () => {
+    //     var user = {
+    //         username : username,
+    //         email : email,
+    //         password : password,
+    //         role : role,
+    //     }
+    //     localStorage.setItem(email, JSON.stringify(user))
+    //     var retrievedUser = JSON.parse(localStorage.getItem(email));
+    //     console.log(retrievedUser.username);
+    //     console.log(retrievedUser.password);
+    //     console.log(retrievedUser.role);
+    //     navigate("/")
+    //     // localStorage.clear();
+    // }
     
-    const handleSignUp = () => {
-        if(JSON.parse(localStorage.getItem(email)))
-        {
-            alert("the entered email already exists")
-        }
-        else if (password === confirmpassword) {
-            add()
+    const handleSignUp = (e) => {
+        if (password === confirmpassword) {
+            add(e)
         } else {
             alert("Passwords do not match")
         }
+    }
+    const add = (e) => {
+        e.preventDefault()
+        e.target.value = "Signing Up ..."
+        e.target.disabled = true
+        console.log(role)
+        axios.post("https://server-api1-li2k.onrender.com/api/user/add",{
+            username,
+            contact,
+            password,
+            role
+        }).then(response => {
+            console.log(response.data)
+        }).catch(console.log)
+        .finally(() => {
+            e.target.value = "Signup"
+            e.target.disabled = false
+            setUsername("")
+            setContact(null)
+            setPassword(null)
+            setRole(null)
+            navigate("/")
+        })
     }
 
     return (
@@ -53,10 +70,10 @@ const Registration = () => {
                 onChange={(e) => setUsername (e.target.value)}
             />
             <input 
-                type="email" 
-                placeholder="Email ID" 
+                type="text" 
+                placeholder="contact" 
                 required
-                onChange={(e) => setEmail (e.target.value)}                
+                onChange={(e) => setContact (e.target.value)}                
             />
             <input 
                 type="password" 
@@ -76,7 +93,7 @@ const Registration = () => {
                 <option value="faculty">Faculty</option>
             </select>
             <input 
-                type="button"
+                type="submit"
                 value="Signup"
                 onClick={handleSignUp}
             />
