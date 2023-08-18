@@ -1,10 +1,33 @@
 import styled from 'styled-components';
 
+<<<<<<< HEAD
 const LogIn = styled.section`
   margin: 20px;
   padding: 20px;
   font-family: Arial,sans-serif;
   background-color: #eee;
+=======
+const LogIn = styled.div`
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #D6EFFF;
+`;
+
+const Heading = styled.h2`
+  font-size: 3rem;
+  text-align: center;
+`;
+
+const SignInContainer = styled.div`
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 40rem;
+  padding: 1.8rem;
+  margin: auto;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;  
+>>>>>>> 9d0cece42b0aea40901f13549fd47cea0e84e4b3
   width: fit-content;
   align-items: center;
 

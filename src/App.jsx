@@ -7,7 +7,7 @@ import Registration from "./components/signup";
 import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
 import { useEffect } from "react";
-// import quizList from "./components/quiz-list";
+
 import Footer from "./components/footer";
 
 
