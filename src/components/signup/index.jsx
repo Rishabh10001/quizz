@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import './style.css'
+// import { SignupContainer,Heading2,Form,StyledInput,StyledSelect,StyledButton } from './style';
+import axios from 'axios';
+import { Form, Heading2, SignupContainer, StyledInput, StyledSelect } from './style';
 
 const Registration = () => {
     const [username, setUsername] = useState("");
@@ -10,10 +12,18 @@ const Registration = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
 
+    axios.post('https://server-api-4rz6.onrender.com/api/user/add',{
+        username:username ,
+        password:password , 
+        confirmpassword :confirmpassword ,
+        role_id : parseInt(role), 
+        email : email}
+        ).then((response) => {
+            console.log("success");
+            alert('Registration Successful');
+    }).catch(console.error()).finally();
+
     const add = () => {
-        // localStorage.setItem(username,password)
-        // console.log(localStorage.getItem(username))
-        // let id = 'id-' + new Date().getTime()
         var user = {
             username : username,
             email : email,
@@ -26,10 +36,9 @@ const Registration = () => {
         console.log(retrievedUser.password);
         console.log(retrievedUser.role);
         navigate("/")
-        // localStorage.clear();
     }
     
-    const handleSignUp = () => {
+    const handleSignUp = (e) => {
         if(JSON.parse(localStorage.getItem(email)))
         {
             alert("the entered email already exists")
@@ -40,49 +49,56 @@ const Registration = () => {
             alert("Passwords do not match")
         }
     }
-
+    
     return (
-        <>
-        <div class="signup-container">
-        <h2>Registration</h2>
-        <form>
-            <input 
+        <>    
+        <SignupContainer>
+        <div>
+            <Heading2>
+                <h2>Registration</h2>
+            </Heading2>
+            <Form>
+            <form>
+            <StyledInput        
                 type="text" 
                 placeholder="Username" 
                 required 
                 onChange={(e) => setUsername (e.target.value)}
             />
-            <input 
+            <StyledInput 
                 type="email" 
                 placeholder="Email ID" 
                 required
                 onChange={(e) => setEmail (e.target.value)}                
             />
-            <input 
+            <StyledInput
                 type="password" 
                 placeholder="Password" 
                 required
                 onChange={(e) => setPassword (e.target.value)}    
             />
-            <input 
+            <StyledInput
                 type="password" 
                 placeholder="Confirm Password" 
                 required
                 onChange={(e) => setConfirmPassword (e.target.value)}
             />
-            <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
-                <option value="" disabled selected>--Select Role--</option>
-                <option value="student">Student</option>
-                <option value="faculty">Faculty</option>
-            </select>
-            <input 
+            <StyledSelect onChange={(e) => setRole(e.target.value)}>
+                    <option value="" disabled selected>--Select Role--</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+            </StyledSelect>
+            <button 
                 type="button"
-                value="Signup"
                 onClick={handleSignUp}
-            />
-        </form>
-        <a href="/">Login</a>
-    </div>
+            >   
+                SignUp
+            </button>
+            </form>
+            </Form>
+            <p>Already have an Account ? <a href="/">Login</a></p>
+            </div>
+            </SignupContainer>
     </>
   )
 }

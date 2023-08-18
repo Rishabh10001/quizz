@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css'
+import Head from './style';
 const Header = () => {
   return (
-    <div id='head'>
-        <h1>QUIZ  APP</h1>
-    </div>
+    <Head>
+        QUIZ APP
+    </Head>
   )
 }
 
