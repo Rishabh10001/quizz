@@ -52,6 +52,7 @@ const Login = () => {
           .finally(() => {
             e.target.value = "Login"
             e.target.disabled = false
+
           })
         }
 
@@ -76,7 +77,7 @@ const Login = () => {
           onChange={(e) => setPasswordExist(e.target.value)}
         />
         <button
-          type = "Login"
+          type = "button"
           onClick={add}
         >
             Login
@@ -84,7 +85,7 @@ const Login = () => {
       </form>
       </SignInForm>
       <SignUpLink>
-        <p class="sign-up-link">Don't have an account? <SignUpAnchor><a href="/signup">Sign Up</a></SignUpAnchor></p>
+        <p className="sign-up-link">Don't have an account? <SignUpAnchor><a href="/signup">Sign Up</a></SignUpAnchor></p>
       </SignUpLink>
     </div>
     </SignInContainer>
