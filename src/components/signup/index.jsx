@@ -10,16 +10,16 @@ const Registration = () => {
     const [contact, setContact] = useState("");
     const navigate = useNavigate();
 
-    axios.post('https://server-api-4rz6.onrender.com/api/user/add',{
-        username:username ,
-        password:password , 
-        confirmpassword :confirmpassword ,
-        role_id : parseInt(role), 
-        contact : contact}
-        ).then((response) => {
-            console.log("success");
-            alert('Registration Successful');
-    }).catch(console.error()).finally();
+    // axios.post('https://server-api-4rz6.onrender.com/api/user/add',{
+    //     username:username ,
+    //     password:password , 
+    //     confirmpassword :confirmpassword ,
+    //     role_id : parseInt(role), 
+    //     contact : contact}
+    //     ).then((response) => {
+    //         console.log("success");
+    //         alert('Registration Successful');
+    // }).catch(console.error()).finally();
 
     // const add = () => {
     //     var user = {
@@ -47,6 +47,16 @@ const Registration = () => {
     //         alert("Passwords do not match")
     //     }
     // }
+
+    const handleSignUp = (e) => {
+        if(password === confirmpassword){
+            add(e)
+        }
+        else{
+            alert("Password doesn't match .")
+        }
+    }
+    
     const add = (e) => {
         e.preventDefault()
         e.target.value = "Signing Up ..."
@@ -74,9 +84,9 @@ const Registration = () => {
     return (
         <>    
         <div>
-            <h2>Registration</h2>
+                <h2>Registration</h2>
             <form>
-            <input        
+            <input       
                 type="text" 
                 placeholder="Username" 
                 required 
@@ -100,16 +110,14 @@ const Registration = () => {
                 required
                 onChange={(e) => setConfirmPassword (e.target.value)}
             />
-            <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
-                <option value="" disabled selected>--Select Role--</option>
-                <option value="student">Student</option>
-                <option value="faculty">Faculty</option>
+            <select onChange={(e) => setRole(e.target.value)}>
+                    <option value="" disabled selected>--Select Role--</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
             </select>
             <button 
-                type="submit"
-                value="Signup"
-                onClick={ add }
-            >   
+                type="button"
+                onClick={ handleSignUp }>   
                 SignUp
             </button>
             </form>
