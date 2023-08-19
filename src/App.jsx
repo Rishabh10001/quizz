@@ -22,16 +22,13 @@ const quizzes = [
 
 const App = () => {
 
-    const [questions, setQuestions] = useState([])
+    const [questions, setQuestions] = useState([]);
     const addQuestion = (question) =>{
-      setQuestions([...questions,question])
-    }
-
-    useEffect(() => {        
-        localStorage.setItem("QUIZES", JSON.stringify(JSON.parse(localStorage.getItem("QUIZES")) || []))
-    },[])
-
-
+      setQuestions([...questions,question]);
+    };
+    useEffect(() => {
+      localStorage.setItem("QUESTIONS", JSON.stringify(questions));
+    },[questions]);
   return(
     <BrowserRouter>
       <Header />
@@ -45,6 +42,6 @@ const App = () => {
       </Routes>
       <Footer/>
     </BrowserRouter>
-  )
-}
-export default App;
+  );
+};
+export default App
