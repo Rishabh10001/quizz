@@ -1,41 +1,17 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
-import {LogIn,Heading,SignInContainer,SignInForm,SignInInput,SignUpLink,SignUpAnchor} from "./style";
+// import { useNavigate } from "react-router-dom";
+import LogIn from "./style";
 import axios from "axios";
 
 const Login = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [contactExist, setContactExist] = useState("");
     const [passwordExist, setPasswordExist] = useState("");
 
-    // const retrievedUser = JSON.parse(localStorage.getItem(emailExist));
-
-    // const handleLogin = () => 
-    // {
-    //     console.log(retrievedUser)
-    //     if(retrievedUser?.email && retrievedUser?.password === passwordExist)
-    //     {  
-    //       logUser() 
-    //     }
-    //     else{
-    //       alert("Wrong credentials")
-    //     }
-    // }
-
-    // const logUser = () => {
-    //   if(retrievedUser.role === "faculty")
-    //   {
-    //     navigate("/create-quiz") 
-    //   }
-    //   if(retrievedUser.role === "student")
-    //   {
-    //     navigate("/questions")
-    //   }
-    // }
         const add = (e) => {
           e.preventDefault()
-          e.target.value = "loging Up ..."
+          e.target.value = "Logging In ..."
           e.target.disabled = true
           axios.post("https://server-api1-li2k.onrender.com/api/user/login",{
             contact : contactExist,
@@ -58,37 +34,32 @@ const Login = () => {
 
   return (
     <LogIn>
-      <SignInContainer>
-        <div className = "signin-container">
-        <Heading><h2>Login</h2></Heading>
-        <SignInForm>
+        <h2>Log In</h2>
+        <div className="SignInContainer">
         <form>
-        <SignInInput
+        <input
           type="text" 
-          placeholder="contact"
+          placeholder="Contact Number"
           required
           onChange={(e) => setContactExist(e.target.value)}
         />
-        <SignInInput      
+        <input      
           type = "password"
           placeholder = "Password" 
-          name = "Password"
           required
           onChange={(e) => setPasswordExist(e.target.value)}
         />
         <button
           type = "button"
-          onClick={add}
-        >
+          onClick={ add }>
             Login
         </button>
       </form>
-      </SignInForm>
-      <SignUpLink>
-        <p className="sign-up-link">Don't have an account? <SignUpAnchor><a href="/signup">Sign Up</a></SignUpAnchor></p>
-      </SignUpLink>
+      
+        <p class="sign-up-link">Don't have an account? <SignUpAnchor><a href="/signup">Sign Up</a></SignUpAnchor></p>
+      
     </div>
-    </SignInContainer>
+    
     </LogIn>
     )
 }
