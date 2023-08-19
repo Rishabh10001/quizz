@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import SignUp from './style';
 
 const Registration = () => {
     const [username, setUsername] = useState("");
@@ -9,44 +10,6 @@ const Registration = () => {
     const [role, setRole] = useState("");
     const [contact, setContact] = useState("");
     const navigate = useNavigate();
-
-    // axios.post('https://server-api-4rz6.onrender.com/api/user/add',{
-    //     username:username ,
-    //     password:password , 
-    //     confirmpassword :confirmpassword ,
-    //     role_id : parseInt(role), 
-    //     contact : contact}
-    //     ).then((response) => {
-    //         console.log("success");
-    //         alert('Registration Successful');
-    // }).catch(console.error()).finally();
-
-    // const add = () => {
-    //     var user = {
-    //         username : username,
-    //         email : email,
-    //         password : password,
-    //         role : role,
-    //     }
-    //     localStorage.setItem(email, JSON.stringify(user))
-    //     var retrievedUser = JSON.parse(localStorage.getItem(email));
-    //     console.log(retrievedUser.username);
-    //     console.log(retrievedUser.password);
-    //     console.log(retrievedUser.role);
-    //     navigate("/")
-    // }
-    
-    // const handleSignUp = (e) => {
-    //     if(JSON.parse(localStorage.getItem(email)))
-    //     {
-    //         alert("the entered email already exists")
-    //     }
-    //     else if (password === confirmpassword) {
-    //         add()
-    //     } else {
-    //         alert("Passwords do not match")
-    //     }
-    // }
 
     const handleSignUp = (e) => {
         if(password === confirmpassword){
@@ -82,9 +45,9 @@ const Registration = () => {
     }
 
     return (
-        <>    
-        <div>
-                <h2>Registration</h2>
+        <SignUp>    
+        <h2>Registration</h2>
+        <div className='SignUpContainer'>
             <form>
             <input       
                 type="text" 
@@ -115,15 +78,16 @@ const Registration = () => {
                     <option value="student">Student</option>
                     <option value="faculty">Faculty</option>
             </select>
-            <button 
+            <input 
                 type="button"
-                onClick={ handleSignUp }>   
-                SignUp
-            </button>
+                className='Button'
+                value = "SignUp"
+                onClick={ handleSignUp } 
+            />
             </form>
-            <p>Already have an Account ? <a href="/">Login</a></p>
             </div>
-    </>
+            <p>Already have an Account ? <a href="/">Login</a></p>
+    </SignUp>
   )
 }
 
