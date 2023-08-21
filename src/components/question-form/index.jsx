@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
+import QuesForm from './style';
 
 const QuestionForm = () => {
 
@@ -49,9 +50,10 @@ const QuestionForm = () => {
     }
 
   return (
-    <div>
-      <form action="">
-        Enter Question
+    <QuesForm>
+        <h2>Enter Question</h2>
+        <div className='QuestionFormContainer'>
+      <form>
         <input 
             type="text" 
             placeholder='Enter the question'
@@ -83,7 +85,7 @@ const QuestionForm = () => {
             onChange={(e) => setOption4(e.target.value)}
         />
         <select name="correctAnswer" id="correctAnswer"  onChange={(e) => setAnswer(e.target.value)}>
-            <option value="" disabled selected>--Select the correct answer--</option>
+            <option value="" disabled selected>--Choose Answer--</option>
             <option value={1}>{option1}</option>
             <option value={2}>{option2}</option>
             <option value={3}>{option3}</option>
@@ -96,11 +98,13 @@ const QuestionForm = () => {
         </select>
         <input 
             type="button" 
+            className='Button'
             value='Add Question'
             onClick={add}
         />
       </form>
-    </div>
+      </div>
+    </QuesForm>
   )
 }
 

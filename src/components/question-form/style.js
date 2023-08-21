@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const SignUp = styled.section`
+const QuesForm = styled.section`
 margin: auto;
-padding: 40px;
+padding: 25px 60px 0px 60px;
 font-family: Arial,sans-serif;
 width: fit-content;
 border-radius: 0.8rem;
@@ -18,10 +18,9 @@ h2{
   margin-top: 0rem;
 }
 
-.SignUpContainer{
+.QuestionFormContainer{
   background-color: #ffff;
   padding: 1rem;
-  margin-top: 0rem;
   border-radius: 0.8rem;
   display: flex;
   justify-content: space-evenly ;
@@ -45,7 +44,6 @@ h2{
     select{
       margin: 10px 0px 30px 0px;
       padding: 5px;
-      background-color: #eee;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
@@ -71,15 +69,8 @@ h2{
     }
   }
 }
-a{
-  color: #01386A;
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 `
 
-export default SignUp
+export default QuesForm
 
