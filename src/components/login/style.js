@@ -34,9 +34,12 @@ const LogIn = styled.section`
         margin: 10px 0;
         padding: 5px;
         border: 1px solid #ccc;
-        background-color: #eee;
         border-radius: 4px;
+        background-color: #eee;
+
         font-size: 14px;
+        justify-content:center;
+        align-items:center;
       }
 
       .Button{
