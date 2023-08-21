@@ -1,8 +1,10 @@
 import { useState } from "react"
 import LogIn from "./style";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
 
     const [contactExist, setContactExist] = useState("");
     const [passwordExist, setPasswordExist] = useState("");
@@ -14,8 +16,8 @@ const Login = () => {
           axios.post("https://server-api1-li2k.onrender.com/api/user/login",{
             contact : contactExist,
             password : passwordExist
-          }).
-            then(response => {
+          })
+          .then(response => {
             console.log(response.data)
             if(response.data){
               alert(`Welcome  ${response.data.role}`)
