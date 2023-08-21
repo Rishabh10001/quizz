@@ -1,11 +1,9 @@
 import { useState } from "react"
-// import { useNavigate } from "react-router-dom";
 import LogIn from "./style";
 import axios from "axios";
 
 const Login = () => {
 
-    // const navigate = useNavigate();
     const [contactExist, setContactExist] = useState("");
     const [passwordExist, setPasswordExist] = useState("");
 
@@ -51,15 +49,13 @@ const Login = () => {
         />
         <input
           type = "button"
+          className="Button"
+          value = "Log in"
           onClick={ add }
-            Login
         />
-        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
       </form>
-      
-        
-      
     </div>
+        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
     
     </LogIn>
     )

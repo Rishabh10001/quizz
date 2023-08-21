@@ -2,9 +2,11 @@ import { styled } from "styled-components";
 const Head = styled.section`
   color: black;
   background-color: #eee;
+  font-family: Arial;
   width: auto;
-  font-size: 1.5rem;
-  font-weight: 400;
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: 500;
   justify-content: center;
   align-items: center;
   max-width: auto;
