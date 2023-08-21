@@ -2,27 +2,30 @@ import styled from 'styled-components';
 
 const SignUp = styled.section`
 margin: auto;
-padding: 20px;
+padding: 40px;
 font-family: Arial,sans-serif;
 width: fit-content;
+border-radius: 0.8rem;
 display: flex;
 flex-direction: column;
-background-color: #eee;
+background-color: #fff;
+box-shadow: 3px 6px 4px rgba(0,0,0,0.3),
+            0px 8px 16px rgba(0,0,0,0.3);
 
 h2{
   font-size: 1.5rem;
   text-align: center;
+  margin-top: 0rem;
 }
 
 .SignUpContainer{
   background-color: #ffff;
-  padding: 1.8rem;
-  margin-top: 3rem;
+  padding: 1rem;
+  margin-top: 0rem;
   border-radius: 0.8rem;
-  box-shadow: 0,2px,4px rgba(0,0,0,0.3),0,8px,16px rgba(0,0,0,0.3);
   display: flex;
-
   justify-content: space-evenly ;
+
 
   form{
     display: flex;
@@ -31,6 +34,8 @@ h2{
     input{
       margin: 10px 0;
       border: 1px solid #ccc;
+      background-color: #eee;
+      padding: 5px;
       border-radius: 4px;
       font-size: 14px;
       justify-content: center;
@@ -38,8 +43,9 @@ h2{
     }
 
     select{
-      margin: 10px 0;
+      margin: 10px 0px 30px 0px;
       padding: 2px;
+      background-color: #eee;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;

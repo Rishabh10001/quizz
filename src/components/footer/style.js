@@ -2,7 +2,8 @@ import { styled } from "styled-components";
 const Wrapper = styled.footer `
     color: white;
     padding: 0.3rem;
-    background-color: black;
+    background-color: #02111B;
+    font-family: Verdana;
     text-align: center;
     font-size: 0.9rem;
     position: fixed;
