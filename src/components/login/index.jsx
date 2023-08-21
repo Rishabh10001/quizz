@@ -22,7 +22,7 @@ const Login = () => {
             if(response.data){
               alert(`Welcome  ${response.data.role}`)
               if(response.data.role === "faculty"){
-                navigate("/question-form")
+                navigate("/create-quiz")
               }
             }
             else{

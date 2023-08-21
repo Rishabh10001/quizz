@@ -11,14 +11,14 @@ import { useEffect } from "react";
 import Footer from "./components/footer";
 
 
-const quizzes = [
-  {
-    name: 'Quiz 1',
-    topic: 'HTML',
-    numQuestions: 10,
-    time: 15
-  }
-];
+// const quizzes = [
+//   {
+//     name: 'Quiz 1',
+//     topic: 'HTML',
+//     numQuestions: 10,
+//     time: 15
+//   }
+// ];
 
 const App = () => {
 
@@ -29,6 +29,7 @@ const App = () => {
     useEffect(() => {
       localStorage.setItem("QUESTIONS", JSON.stringify(questions));
     },[questions]);
+
   return(
     <BrowserRouter>
       <Header />
@@ -38,7 +39,7 @@ const App = () => {
         <Route path="/questions" element = {<Questions questions={questions} />} />
         <Route path="/question-form" element = {<QuestionForm  />} />
         <Route path="/create-quiz" element = { <CreateQuiz />} />
-        <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/>
+        {/* <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/> */}
       </Routes>
       <Footer/>
     </BrowserRouter>

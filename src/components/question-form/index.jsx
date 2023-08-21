@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
 
 const QuestionForm = () => {
@@ -11,21 +11,24 @@ const QuestionForm = () => {
     const [option4, setOption4] = useState("");
     const [answer, setAnswer] = useState(0);
     // const [quiz, setQuiz] = useState(null)
-    const [quiz, setQuiz] = useState({ id: null, title: "", questions: [] });
+    
 
 
     const quizes = JSON.parse(localStorage.getItem("QUIZES"))
-    console.log(quizes)
+    const [quiz, setQuiz] = useState(quizes[0]);
 
-    const navigate = useNavigate();
+    // console.log(quizes)
+
+    // const navigate = useNavigate();
     const add = () =>{
 
-        const newQuestion = new Question(question, [option1, option2, option3, option4], answer);
+        const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
         const updatedQuiz = { ...quiz, questions: [...quiz.questions, newQuestion] };
 
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
         localStorage.setItem("QUIZES", JSON.stringify(quizes));
+        console.log(quizes);
 
         // const indexMatch = quizes.findIndex(q => q.id === quiz.id)
         // quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
@@ -89,9 +92,9 @@ const QuestionForm = () => {
             <option value={3}>{option3}</option>
             <option value={4}>{option4}</option>
         </select>
-        <select onChange={e => setQuiz(e.target.value)}>
+        <select onChange={e => setQuiz(JSON.parse(e.target.value))}>
             {
-                quizes.map(quiz => <option key={quiz.id} value={quiz}>{quiz.title}</option>)
+                quizes.map(quiz => <option key={quiz.id} value={JSON.stringify(quiz)}>{quiz.title}</option>)
             }
         </select>
         <input 
