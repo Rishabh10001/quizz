@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateQuiz = () => {
 
-    const [title ,setTitle] = useState("")
-    const [description,setDescription ]=useState("");
-    const [duration,setDuration] = useState(0)
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("");
+    const [duration, setDuration] = useState(0)
     
     const navigate = useNavigate();
     const addQuiz = () =>{
-        let quizes = JSON.parse(localStorage.getItem("QUIZES"))
+        let quizes = localStorage.getItem("QUIZES") ? JSON.parse(localStorage.getItem("QUIZES")) : []
         const newQuiz = new Quiz(title,description,duration)
         quizes.push(newQuiz)
         localStorage.setItem("QUIZES", JSON.stringify(quizes))
