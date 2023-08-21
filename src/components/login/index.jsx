@@ -1,11 +1,11 @@
 import { useState } from "react"
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LogIn from "./style";
 import axios from "axios";
 
 const Login = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [contactExist, setContactExist] = useState("");
     const [passwordExist, setPasswordExist] = useState("");
 
@@ -16,10 +16,14 @@ const Login = () => {
           axios.post("https://server-api1-li2k.onrender.com/api/user/login",{
             contact : contactExist,
             password : passwordExist
-          }).then(response => {
+          }).
+            then(response => {
             console.log(response.data)
             if(response.data){
-            alert("welcome")
+              alert(`Welcome  ${response.data.role}`)
+              if(response.data.role === "faculty"){
+                navigate("/question-form")
+              }
             }
             else{
             alert("Invalid user")
@@ -28,7 +32,6 @@ const Login = () => {
           .finally(() => {
             e.target.value = "Login"
             e.target.disabled = false
-
           })
         }
 
@@ -49,14 +52,14 @@ const Login = () => {
           required
           onChange={(e) => setPasswordExist(e.target.value)}
         />
-        <button
+        <input
           type = "button"
-          onClick={ add }>
-            Login
-        </button>
+          onClick={ add }
+          value="Login"
+        />
+        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
       </form>
       
-        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
       
     </div>
     

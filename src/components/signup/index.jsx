@@ -115,14 +115,16 @@ const Registration = () => {
                     <option value="student">Student</option>
                     <option value="faculty">Faculty</option>
             </select>
-            <button 
+            <input 
                 type="button"
-                onClick={ handleSignUp }>   
-                SignUp
-            </button>
-            </form>
+                onClick={ handleSignUp }  
+                value = "SignUp"
+            />
             <p>Already have an Account ? <a href="/">Login</a></p>
+            </form>
+            
             </div>
+            
     </>
   )
 }
