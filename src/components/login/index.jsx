@@ -14,10 +14,14 @@ const Login = () => {
           axios.post("https://server-api1-li2k.onrender.com/api/user/login",{
             contact : contactExist,
             password : passwordExist
-          }).then(response => {
+          }).
+            then(response => {
             console.log(response.data)
             if(response.data){
-            alert("welcome")
+              alert(`Welcome  ${response.data.role}`)
+              if(response.data.role === "faculty"){
+                navigate("/question-form")
+              }
             }
             else{
             alert("Invalid user")
@@ -26,7 +30,6 @@ const Login = () => {
           .finally(() => {
             e.target.value = "Login"
             e.target.disabled = false
-
           })
         }
 
