@@ -57,7 +57,7 @@ const Registration = () => {
             />
             <input 
                 type="text" 
-                placeholder="contact" 
+                placeholder="Contact" 
                 required
                 onChange={(e) => setContact (e.target.value)}                
             />

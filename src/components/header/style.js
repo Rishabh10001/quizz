@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 const Head = styled.section`
   color: black;
-  background-color: #eee;
+  background-color: #afe5f0;
   font-family: Arial;
   width: auto;
   padding: 10px;
@@ -13,7 +13,7 @@ const Head = styled.section`
   position: sticky;
   top: 0;
   z-index: 100;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   text-align: center;
 `
 
