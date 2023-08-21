@@ -49,14 +49,15 @@ const Login = () => {
           required
           onChange={(e) => setPasswordExist(e.target.value)}
         />
-        <button
+        <input
           type = "button"
-          onClick={ add }>
+          onClick={ add }
             Login
-        </button>
+        />
+        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
       </form>
       
-        <p class="sign-up-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+        
       
     </div>
     
