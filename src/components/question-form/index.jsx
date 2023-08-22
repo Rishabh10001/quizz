@@ -13,14 +13,12 @@ const QuestionForm = () => {
     const [answer, setAnswer] = useState(0);
     // const [quiz, setQuiz] = useState(null)
     
-
-
     const quizes = JSON.parse(localStorage.getItem("QUIZES"))
     const [quiz, setQuiz] = useState(quizes[0]);
 
     // console.log(quizes)
-
     // const navigate = useNavigate();
+    
     const add = () =>{
 
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
