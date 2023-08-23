@@ -53,12 +53,14 @@ const Registration = () => {
                 type="text" 
                 placeholder="Username" 
                 required 
+                pattern="[a-zA-Z0-9 ]+"
                 onChange={(e) => setUsername (e.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="Contact" 
                 required
+                pattern='[0-9]{10}'
                 onChange={(e) => setContact (e.target.value)}                
             />
             <input
@@ -79,7 +81,7 @@ const Registration = () => {
                     <option value="faculty">Faculty</option>
             </select>
             <input 
-                type="button"
+                type="submit"
                 className='Button'
                 value = "SignUp"
                 onClick={ handleSignUp } 
