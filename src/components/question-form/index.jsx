@@ -28,10 +28,18 @@ const QuestionForm = () => {
     const add = () =>{
 
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
-        const updatedQuiz = { ...quiz, questions: [...quiz.questions, newQuestion] };
 
+        const ques = {
+            id: newQuestion.id,
+            question :newQuestion.question ,
+            options: newQuestion.options
+        }
+
+        const updatedQuiz = { ...quiz, questions: [...quiz.questions, ques] };
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
+/// changes from here
+
         localStorage.setItem("QUIZES", JSON.stringify(quizes));
         console.log(quizes);
 

@@ -24,6 +24,9 @@ const Login = () => {
               if(response.data.role === "faculty"){
                 navigate("/create-quiz")
               }
+              else if(response.data.role === "student"){
+                navigate("/quizes")
+              }
             }
             else{
             alert("Invalid user")
@@ -55,7 +58,7 @@ const Login = () => {
         <input
           type = "button"
           className="Button"
-          value = "Log in"
+          value = "Log In"
           onClick={ add }
         />
       </form>

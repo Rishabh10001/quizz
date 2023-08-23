@@ -56,7 +56,7 @@ h2{
     }
 
     .Button{
-      margin: 30px;
+      margin: 3.0px;
       padding: 10px 20px;
       border: none;
       cursor: pointer;

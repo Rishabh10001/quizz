@@ -1,8 +1,8 @@
 export class Question {
-    constructor(ques, options, ans) {
+    constructor(ques, ans ,correctAnsIndex) {
         this.id = `ques-${(new Date()).getTime()}`;
         this.ques = ques
-        this.options = options;
         this.ans = ans;
+        this.correctAnsIndex = correctAnsIndex;
     }
 }
