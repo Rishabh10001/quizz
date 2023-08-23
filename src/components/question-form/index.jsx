@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
 import QuesForm from './style';
+import axios from 'axios';
 
 const QuestionForm = () => {
 
@@ -12,9 +13,14 @@ const QuestionForm = () => {
     const [option4, setOption4] = useState("");
     const [answer, setAnswer] = useState(0);
     // const [quiz, setQuiz] = useState(null)
-    
-    const quizes = JSON.parse(localStorage.getItem("QUIZES"))
+    const [quizes, setQuizes] = useState([])
+    // const quizes = JSON.parse(localStorage.getItem("QUIZES"))
     const [quiz, setQuiz] = useState(quizes[0]);
+
+    useEffect(() => {
+        axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
+        .then(res => setQuizes(res.data))
+    },[])
 
     // console.log(quizes)
     // const navigate = useNavigate();

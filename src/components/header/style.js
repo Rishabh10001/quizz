@@ -1,20 +1,15 @@
 import { styled } from "styled-components";
 const Head = styled.section`
+ 
   color: black;
   background-color: #afe5f0;
   font-family: Arial;
   width: auto;
   padding: 10px;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  justify-content: center;
+  gap : 20px;
   align-items: center;
-  max-width: auto;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  margin-bottom: 4rem;
-  text-align: center;
 `
 
 export default Head
