@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useNavigate } from 'react';
 import Head from './style';
 // import Menu from '../menu';
 const Header = () => {
-
+  const navigator = useNavigate();
   // const [menuOpen, setMenuOpen] = useState(false)
-  
+  const handleLogout = () => {
+    navigator('/');
+  } 
   // useEffect(() => {
   //   window.document.body.addEventListener('click',(e) => {
   //     if(e.target.nodeName === "INPUT" || e.target.nodeName === "NAV"){
@@ -19,13 +21,13 @@ const Header = () => {
 
   return (
     <Head>
-        {/* {
-          menuOpen && <Menu setMenuOpen={setMenuOpen} />
-        }
-        <input type="button" value={menuOpen ? "X" : "="} onClick={e => setMenuOpen(!menuOpen)} /> */}
-
-
-        <h1>QUIZ APP</h1>
+        QUIZ APP
+        <input
+          type="button"
+          className='Button'
+          value='Logout'
+          onClick={ handleLogout }
+        />
     </Head>
   )
 }
