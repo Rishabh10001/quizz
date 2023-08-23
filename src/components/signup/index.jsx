@@ -15,7 +15,7 @@ const Registration = () => {
         if(password === confirmpassword){
             add(e)
         }
-        else{
+        else{ 
             alert("Password doesn't match .")
         }
     }

@@ -1,9 +1,9 @@
 export class Quiz{
-    constructor(title, description, durationInMin, questions){
+    constructor(title, description, answers, ques){
         this.id =`quiz-${(new Date()).getTime()}`;
         this.title = title;
         this.description = description;
-        this.durationInMin = durationInMin;
-        this.questions = []
+        this.ques = []
+        this.answers = {}
     }
 }
