@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Quiz } from '../../modals/Quiz';
 import { useNavigate } from 'react-router-dom';
+import CreateQuizStyle from './style';
 import axios from 'axios';
 
 const CreateQuiz = () => {
@@ -41,6 +42,9 @@ const CreateQuiz = () => {
     
     
   return (
+    <CreateQuizStyle>
+    <h2>Create Quiz</h2>
+    <div className="createquiz">
     <form action="">
         <input 
             type="text" 
@@ -54,24 +58,19 @@ const CreateQuiz = () => {
             required
             onChange={(e) => setDescription(e.target.value)} 
         />
-        {/* <input 
+        <input 
             type="number" 
-            placeholder='Duration'
-            required
+            placeholder='duration'
             onChange={(e) => setDuration(e.target.value)}
-        /> */}
+        />
         <input 
             type="button" 
-            value="Create Quiz"
+            value="Add Question"
             onClick={addQuiz}
         />
-        <input
-            type='button'
-            value="Add Question"
-            onClick={addQuestion}
-        />
-
     </form>
+    </div>
+    </CreateQuizStyle>
   )
 }
 
