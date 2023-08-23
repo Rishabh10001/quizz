@@ -58,11 +58,11 @@ const CreateQuiz = () => {
             required
             onChange={(e) => setDescription(e.target.value)} 
         />
-        <input 
+        {/* <input 
             type="number" 
             placeholder='duration'
             onChange={(e) => setDuration(e.target.value)}
-        />
+        /> */}
         <input 
             type="button" 
             value="Add Question"

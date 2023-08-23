@@ -27,22 +27,11 @@ const QuestionForm = () => {
     const add = () =>{
 
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
-<<<<<<< HEAD
 
         const ques = {
             id : newQuestion.id,
             question : newQuestion.question ,
             options : newQuestion.options
-        }
-
-        const updatedQuiz = { ...quiz, questions: [...quiz.questions, ques] };
-=======
->>>>>>> 8cb1722b2b4433e9c2e897d6f665cdd62943744c
-
-        const ques = {
-            id: newQuestion.id,
-            question :newQuestion.question ,
-            options: newQuestion.options
         }
 
         const updatedQuiz = { ...quiz, questions: [...quiz.questions, ques] };
