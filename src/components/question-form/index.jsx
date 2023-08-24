@@ -24,16 +24,20 @@ const QuestionForm = () => {
     // console.log(quizes)
     // const navigate = useNavigate();
     
-    const add = () =>{
+    const add = (e) =>{
 
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
-
+        
         const quest = {
             id: newQuestion.id,
             question :newQuestion.question ,
             options: newQuestion.options
         }
-
+        axios.post("https://quiz-back-kqit.onrender.com/api/ques/add",newQuestion)
+        .then(response => {
+            console.log(response)
+        }).catch(console.log)
+        
         const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
