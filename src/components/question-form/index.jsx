@@ -39,7 +39,7 @@ const QuestionForm = () => {
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
 /// changes from here
-
+        
         localStorage.setItem("QUIZES", JSON.stringify(quizes));
         console.log(quizes);
 

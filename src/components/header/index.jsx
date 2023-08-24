@@ -1,4 +1,4 @@
-import React, { useNavigate } from 'react';
+import React, { useNavigate } from 'react-router-dom';
 import Head from './style';
 // import Menu from '../menu';
 const Header = () => {
@@ -10,7 +10,6 @@ const Header = () => {
   // useEffect(() => {
   //   window.document.body.addEventListener('click',(e) => {
   //     if(e.target.nodeName === "INPUT" || e.target.nodeName === "NAV"){
-
   //     }else{
   //       // if(e.target.classList.contains('hamburgerMenu')){
   //         setMenuOpen(false)
