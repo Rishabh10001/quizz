@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const QuizDisplay = () => {
-  const[currentQuestion,setCurrentQuestion] = useState();
+const QuizDisplay = () => {3
+  // const [quizess,setQuizess] = useState([])
+  //const [questions, setQuestions] = useState([])
 
-
-  if (currentQuestion !=questions.length-1){
-    setCurrentQuestion((prev ) => prev+1)
-   }
-   else {
-    setCurrentQuestion(0)
-   }
+  // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
+  // .then(response => {
+  //   setQuizess(response.data)
     
+  // })
+  // .catch(console.log)
+
+    
+ 
+  // {QuizDisplay}
 
 
   return (
     <div className='quiz-container'>
-      <span className='active-question-no '> { currentQuestion+ 1}</span> <span className='total-question'>/{questions.length}</span>
+      {/* <span className='active-question-no '> { currentQuestion+ 1}</span> <span className='total-question'>/{questions.length}</span> */}
       
-        
+      {/* quizess.map(quiz => {if(quiz.id==="quiz-1"){
+    const questions =quiz.ques
+    console.log("Questions:" + questions);
+}}
+  ) */}
       
     </div>
   )
