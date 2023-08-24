@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 const Head = styled.section`
+ 
   color: black;
   background-color: #1B9AAA;
   width: auto;
@@ -34,6 +35,10 @@ const Head = styled.section`
     }
   }
 
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap : 20px;
+  align-items: center;
 `
 
 export default Head

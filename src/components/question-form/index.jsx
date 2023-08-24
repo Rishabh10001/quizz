@@ -21,6 +21,7 @@ const QuestionForm = () => {
         axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
         .then(res => setQuizes(res.data))
     },[])
+
     // console.log(quizes)
     // const navigate = useNavigate();
     
@@ -38,7 +39,7 @@ const QuestionForm = () => {
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
 /// changes from here
-
+        
         localStorage.setItem("QUIZES", JSON.stringify(quizes));
         console.log(quizes);
 

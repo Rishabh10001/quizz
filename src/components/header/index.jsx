@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useNavigate } from 'react-router-dom';
 import Head from './style';
-import { useNavigate } from 'react-router-dom';
+// import Menu from '../menu';
 const Header = () => {
   const navigator = useNavigate();
-  // const navigate = useNavigate()
+  // const [menuOpen, setMenuOpen] = useState(false)
   const handleLogout = () => {
     navigator('/');
   } 
+  // useEffect(() => {
+  //   window.document.body.addEventListener('click',(e) => {
+  //     if(e.target.nodeName === "INPUT" || e.target.nodeName === "NAV"){
+  //     }else{
+  //       // if(e.target.classList.contains('hamburgerMenu')){
+  //         setMenuOpen(false)
+  //       // }
+  //     }
+  //   })
+  // },[])
 
   return (
     <Head>
