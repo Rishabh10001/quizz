@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 const Head = styled.section`
+ 
   color: black;
-  background-color: #afe5f0;
+  background-color: #1B9AAA;
   width: auto;
-  padding: 10px;
-  font-size: 32px;
+  padding: 1%;
+  font-size: 50px;
   font-family: monospace ;
   font-weight: 900;
   max-width: auto;
@@ -34,6 +35,13 @@ const Head = styled.section`
     }
   }
 
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap : 20px;
+  align-items: center;
 `
 
 export default Head
+
+
+//#177E89
