@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SignUp = styled.section`
-margin: auto;
+margin: 3rem auto;
 padding: 40px;
 font-family: Arial,sans-serif;
 width: fit-content;

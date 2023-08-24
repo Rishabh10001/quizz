@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const LogIn = styled.section`
-  margin: auto;
+  margin: 6rem auto;
   padding: 30px;
   font-family: Arial,sans-serif;
   background-color: #fff;

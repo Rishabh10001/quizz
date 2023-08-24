@@ -66,7 +66,7 @@ const QuestionForm = () => {
 
   return (
     <QuesForm>
-        <h2>Enter Question</h2>
+        <h2>Add Question</h2>
         <div className='QuestionFormContainer'>
       <form>
         <input 
