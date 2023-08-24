@@ -28,13 +28,13 @@ const QuestionForm = () => {
 
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
 
-        const ques = {
+        const quest = {
             id: newQuestion.id,
             question :newQuestion.question ,
             options: newQuestion.options
         }
 
-        const updatedQuiz = { ...quiz, questions: [...quiz.questions, ques] };
+        const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
         const indexMatch = quizes.findIndex(q => q.id === quiz.id);
         quizes[indexMatch] = updatedQuiz;
 /// changes from here
