@@ -4,19 +4,24 @@ import axios from 'axios';
 import SignUp from './style';
 
 const Registration = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmpassword, setConfirmPassword] = useState("")
-    const [role, setRole] = useState("");
-    const [contact, setContact] = useState("");
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [confirmpassword, setConfirmPassword] = useState(null)
+    const [role, setRole] = useState(null);
+    const [contact, setContact] = useState(null);
     const navigate = useNavigate();
 
     const handleSignUp = (e) => {
-        if(password === confirmpassword){
-            add(e)
+        if(username && password && role && contact){
+            if((password === confirmpassword)){
+                add(e)
+            }
+            else{ 
+                alert("Password doesn't match .")
+            }
         }
-        else{ 
-            alert("Password doesn't match .")
+        else{
+            alert("Field(s) are empty")
         }
     }
     
