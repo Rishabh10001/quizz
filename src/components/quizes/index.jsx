@@ -2,6 +2,7 @@ import React from 'react'
 import QuizesStyle from './style'
 
 const Quizes = () => {
+  
   return (
     <QuizesStyle>
     <div className='QuizContainer'>

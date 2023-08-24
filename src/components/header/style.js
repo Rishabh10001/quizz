@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 const Head = styled.section`
   color: black;
-  background-color: #afe5f0;
+  background-color: #1B9AAA;
   width: auto;
   padding: 10px;
   font-size: 32px;
@@ -37,3 +37,6 @@ const Head = styled.section`
 `
 
 export default Head
+
+
+//#177E89
