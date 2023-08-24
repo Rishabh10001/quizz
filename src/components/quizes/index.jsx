@@ -10,7 +10,7 @@ const Quizes = () => {
   const [quiz, setQuiz] = useState(quizes[0]);
 
   useEffect(() => {
-      axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
+      axios.get('https://quizattendace.onrender.com/api/quiz/read')
       .then(res => setQuizes(res.data))
   },[])
 

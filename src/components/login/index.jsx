@@ -13,18 +13,18 @@ const Login = () => {
           e.preventDefault()
           e.target.value = "Logging In ..."
           e.target.disabled = true
-          axios.post("https://server-api1-li2k.onrender.com/api/user/login",{
+          axios.post("https://quizattendace.onrender.com/api/user/login",{
             contact : contactExist,
             password : passwordExist
           })
           .then(response => {
             console.log(response.data)
             if(response.data){
-              alert(`Welcome  ${response.data.role}`)
-              if(response.data.role === "faculty"){
+              alert(`Welcome  ${response.data.user.role}`)
+              if(response.data.user.role === "faculty"){
                 navigate("/create-quiz")
               }
-              else if(response.data.role === "student"){
+              else if(response.data.user.role === "student"){
                 navigate("/quizes")
               }
             }

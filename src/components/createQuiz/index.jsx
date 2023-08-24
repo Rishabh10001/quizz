@@ -19,7 +19,7 @@ const CreateQuiz = () => {
         // let quizes = localStorage.getItem("QUIZES") ? JSON.parse(localStorage.getItem("QUIZES")) : []
         const newQuiz = new Quiz(title,description)
 
-        axios.post("https://quiz-back-kqit.onrender.com/api/quiz/add", newQuiz)
+        axios.post("https://quizattendace.onrender.com/api/quiz/add", newQuiz)
         .then(response => {
             console.log(response)
             navigate("/question-form")
@@ -36,8 +36,11 @@ const CreateQuiz = () => {
         navigate("/question-form")
     }
 
+    // const addQuestion = () => {
+    //     let quizes = localStorage.getItem("QUIZES") ? navigate("/question-form") : alert("No existing quizes")
+    // }
     const addQuestion = () => {
-        let quizes = localStorage.getItem("QUIZES") ? navigate("/question-form") : alert("No existing quizes")
+        navigate("/question-form")
     }
     
     
@@ -64,9 +67,17 @@ const CreateQuiz = () => {
             onChange={(e) => setDuration(e.target.value)}
         /> */}
         <input 
-            type="button" 
-            value="Add Question"
+            type="button"
+            className='Button' 
+            value="Create Quiz"
             onClick={addQuiz}
+        />
+        <label>Add questions to existing quiz ?</label>
+        <input 
+            type="button"
+            className='Button' 
+            value="Add Question"
+            onClick={addQuestion}
         />
     </form>
     </div>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CreateQuizStyle = styled.section`
-margin: auto;
+margin: 6rem auto;
 padding: 40px;
 font-family: Arial,sans-serif;
 width: fit-content;
@@ -55,9 +55,17 @@ h2{
       background-size: 20px;
     }
 
+    label{
+      margin-top: 20px;
+      font-family:'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
     .Button{
-      margin: 3.0px;
-      padding: 10px 20px;
+      margin: 12px;
+      padding: 10px;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
