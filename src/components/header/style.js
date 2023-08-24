@@ -3,7 +3,7 @@ const Head = styled.section`
   color: black;
   background-color: #1B9AAA;
   width: auto;
-  padding: 10px;
+  padding: 0.8%;
   font-size: 32px;
   font-family: monospace ;
   font-weight: 900;
