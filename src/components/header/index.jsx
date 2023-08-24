@@ -1,32 +1,20 @@
 import React, { useNavigate } from 'react-router-dom';
 import Head from './style';
-// import Menu from '../menu';
+import logout from './logout.png'
+
 const Header = () => {
   const navigator = useNavigate();
-  // const [menuOpen, setMenuOpen] = useState(false)
+
   const handleLogout = () => {
     navigator('/');
-  } 
-  // useEffect(() => {
-  //   window.document.body.addEventListener('click',(e) => {
-  //     if(e.target.nodeName === "INPUT" || e.target.nodeName === "NAV"){
-  //     }else{
-  //       // if(e.target.classList.contains('hamburgerMenu')){
-  //         setMenuOpen(false)
-  //       // }
-  //     }
-  //   })
-  // },[])
+  };
 
   return (
     <Head>
         QUIZ APP
-        <input
-          type="button"
-          className='Button'
-          value='Logout'
-          onClick={ handleLogout }
-        />
+        <button className='Button' onClick={ handleLogout }>
+          <img src = {logout} alt ="logout" className='logout-icon'/>
+        </button>
     </Head>
   )
 }
