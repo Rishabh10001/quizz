@@ -19,7 +19,7 @@ const CreateQuiz = () => {
         // let quizes = localStorage.getItem("QUIZES") ? JSON.parse(localStorage.getItem("QUIZES")) : []
         const newQuiz = new Quiz(title,description)
 
-        axios.post("https://quiz-back-kqit.onrender.com/api/quiz/add", newQuiz)
+        axios.post("https://quizattendace.onrender.com/api/quiz/add", newQuiz)
         .then(response => {
             console.log(response)
             navigate("/question-form")

@@ -5,7 +5,7 @@ const Head = styled.section`
   background-color: #1B9AAA;
   width: auto;
   padding: 1%;
-  font-size: 50px;
+  font-size: 32px;
   font-family: monospace ;
   font-weight: 900;
   max-width: auto;
@@ -35,10 +35,7 @@ const Head = styled.section`
     }
   }
 
-  font-size: 1.2rem;
-  font-weight: 500;
-  gap : 20px;
-  align-items: center;
+
 `
 
 export default Head

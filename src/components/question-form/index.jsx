@@ -12,39 +12,38 @@ const QuestionForm = () => {
     const [option3, setOption3] = useState("");
     const [option4, setOption4] = useState("");
     const [answer, setAnswer] = useState(0);
-    // const [quiz, setQuiz] = useState(null)
     const [quizes, setQuizes] = useState([])
     // const quizes = JSON.parse(localStorage.getItem("QUIZES"))
-    const [quiz, setQuiz] = useState(quizes[0]);
-
+    
     useEffect(() => {
-        axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
+        axios.get('https://quizattendace.onrender.com/api/quiz/read')
         .then(res => setQuizes(res.data))
     },[])
-
+    
+    const [quiz, setQuiz] = useState(quizes[0]);
     // console.log(quizes)
     // const navigate = useNavigate();
     
     const add = (e) =>{
 
-        const newQuestion = new Question(question, [option1, option2, option3, option4], +answer);
+        const newQuestion = new Question(question, [option1, option2, option3, option4], +answer, quiz.id);
         
         const quest = {
             id: newQuestion.id,
             question :newQuestion.question ,
             options: newQuestion.options
         }
-        axios.post("https://quiz-back-kqit.onrender.com/api/ques/add",newQuestion)
+        axios.post("https://quizattendace.onrender.com/api/ques/add", newQuestion)
         .then(response => {
             console.log(response)
         }).catch(console.log)
         
-        const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
-        const indexMatch = quizes.findIndex(q => q.id === quiz.id);
-        quizes[indexMatch] = updatedQuiz;
+        // const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
+        // const indexMatch = quizes.findIndex(q => q.id === quiz.id);
+        // quizes[indexMatch] = updatedQuiz;
 /// changes from here
         
-        localStorage.setItem("QUIZES", JSON.stringify(quizes));
+        // localStorage.setItem("QUIZES", JSON.stringify(quizes));
         console.log(quizes);
 
         // const indexMatch = quizes.findIndex(q => q.id === quiz.id)

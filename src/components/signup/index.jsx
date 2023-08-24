@@ -25,7 +25,7 @@ const Registration = () => {
         e.target.value = "Signing Up ..."
         e.target.disabled = true
         console.log(role)
-        axios.post("https://server-api1-li2k.onrender.com/api/user/add",{
+        axios.post("https://quizattendace.onrender.com/api/user/add",{
             username,
             contact,
             password,
