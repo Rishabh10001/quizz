@@ -48,6 +48,7 @@ const nextQuestion = () => {
 // }
 
 const handleSubmit = () =>{
+
   //  const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
   //  const answers = []
   //  for (let idx = 0; idx < questions.length; idx++) {
