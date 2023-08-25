@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const QuesForm = styled.section`
-margin: 5rem auto;
+margin: 3rem auto;
 padding: 25px 60px 0px 60px;
 font-family: Arial,sans-serif;
 width: fit-content;

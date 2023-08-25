@@ -22,8 +22,7 @@ const QuizDisplay = () => {
   useEffect(() => {
     axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
     .then(response => {
-      setQuizes(response.data)
-      
+      setQuizes(response.data)  
     })
     .catch(error => console.error('Error fetching quizzes:', error));
       console.log(questions)
@@ -33,8 +32,7 @@ const QuizDisplay = () => {
     if(quizes && quizes.length){
       const indexMatch = quizes.findIndex(q => q.id === param.id)
       setQuestions(quizes[indexMatch].ques)
-    }
-    
+    }  
   },[quizes])
 
 const nextQuestion = () => {
@@ -84,34 +82,40 @@ const handleSubmit = () =>{
     <DisplayStyle>
     <div className='quiz-container'>
     
-  {questions.length > 0 && currentIdx <= questions.length - 1 && (
-  <div><div className='Question'>{questions[currentIdx].ques}</div>
-  {questions[currentIdx].ans.map((option,idx) => (
-  <div key={idx}>
-    <label>
-      <input
-        type='radio'
-        onChange={() => setSelectedOption(option)}
-        checked = {selectedOption === option}
-      />{option}</label></div>)
- )}
- 
- {currentIdx < questions.length -1 && (
- <button
-  className='Button' 
-  onClick={nextQuestion}
-  disabled = {!selectedOption}>
-    Next
-  </button>)}
-  </div>)}
-    {currentIdx === questions.length - 1 && (
-    <div>
-      <button 
-        className='Button'
-        onClick={handleSubmit}>
-          Submit
-      </button></div>)}
-    </div>
+    {questions.length > 0 && currentIdx <= questions.length - 1 && (
+      <div>
+        <div className='Question'>
+          {questions[currentIdx].ques}
+        </div>
+        {questions[currentIdx].ans.map((option,idx) => (
+        <div key={idx}>
+          <label>
+          <input
+            type='radio'
+            onChange={() => setSelectedOption(option)}
+            checked = {selectedOption === option}
+          />
+          {option}
+          </label>
+        </div>)
+  )}
+  
+      {currentIdx < questions.length -1 && (
+      <button
+        className='Button' 
+        onClick={nextQuestion}
+        disabled = {!selectedOption}>
+          Next
+      </button>)}
+    </div>)}
+      {currentIdx === questions.length - 1 && (
+      <div>
+        <button 
+          className='Button'
+          onClick={handleSubmit}>
+            Submit
+        </button></div>)}
+      </div>
     </DisplayStyle>
   )
 }
