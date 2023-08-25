@@ -6,7 +6,7 @@ const QuizDisplay = ({quizId}) => {
 
   const [questions, setQuestions] = useState([])
   const [currentIdx, setCurrentIdx] = useState(0);
-  const[selectedOption,setSelectedOption] = useState(null);
+  const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
 
   // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
@@ -48,11 +48,11 @@ const handleSubmit = () => {
   return (
     <div className='quiz-container'>
     
-  {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
-  {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
-    onChange={() => setSelectedOption(option)}
-    checked = {selectedOption === option}
-  />{option}</label></div>)
+    {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
+    {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
+      onChange={() => setSelectedOption(option)}
+      checked = {selectedOption === option}
+    />{option}</label></div>)
  )}
  
  {currentIdx < questions.length -1 && (<button onClick={nextQuestion} disabled = {!selectedOption}>Next</button>)}
