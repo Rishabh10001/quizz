@@ -3,26 +3,21 @@ import { styled } from "styled-components";
 const QuizesStyle = styled.section`
     margin: auto;
     padding: 30px;
+    max-width: 769px;
 
     .QuizContainer{
+        max-width: 769px;
         background-color: #ffff;
-        padding: 3rem;
-        margin: 3rem;
+        padding: 15px;
+        margin: 5px;
         border-radius: 0.8rem;
-        display: flex;
-        justify-content: space-evenly ;
-        @media screen and (max-width :769px){
-            width: fit-content !important;
-            height:fit-content!important;
-            align-items: center;
-            text-align:center;
-            font-size:.5em;
-            }
+        display: block;
 
             .Button{
-                margin: 30px;
+                margin: 5px;
                 padding: 10px 20px;
                 border: none;
+                font-size: 14px;
                 border-radius:4px;
                 cursor: pointer;
                 transition: background-color 0.3s ease, transform 0.2s ease;

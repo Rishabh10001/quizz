@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
+import DisplayStyle from './style';
 
 const QuizDisplay = ({quizId}) => {
   // const [quizess,setQuizess] = useState([])
@@ -46,20 +47,45 @@ const handleSubmit = () => {
 }
   
   return (
+    <DisplayStyle>
     <div className='quiz-container'>
     
-  {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
-  {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
-    onChange={() => setSelectedOption(option)}
-    checked = {selectedOption === option}
-  />{option}</label></div>)
- )}
- 
- {currentIdx < questions.length -1 && (<button onClick={nextQuestion} disabled = {!selectedOption}>Next</button>)}
+    {questions.length > 0 && currentIdx <= questions.length - 1 && (
+    <div>
+      <div className='Question'>
+        {questions[currentIdx].ques}
+      </div>
+    {questions[currentIdx].ans.map((option,idx) => (
+    <div key={idx}>
+      <label>
+        <input 
+          type='radio'
+          onChange={() => setSelectedOption(option)}
+          checked = {selectedOption === option}
+        />
+        {option}
+      </label>
+    </div>)
+    )}
+    {currentIdx < questions.length -1 && (
+    <button
+      className='Button'
+      onClick={nextQuestion} 
+      disabled = {!selectedOption}>
+        Next
+    </button>)}
   </div>)}
   
-    {currentIdx === questions.length - 1 && (<div><button onClick={handleSubmit}>Submit</button></div>)}
-    </div>
+    {currentIdx === questions.length - 1 && (
+    <div>
+      <button 
+        className='Button'
+        onClick={handleSubmit}>
+          Submit
+      </button>
+  </div>)}
+  </div>
+  </DisplayStyle>
   )
 }
 
