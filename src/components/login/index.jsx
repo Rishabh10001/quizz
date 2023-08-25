@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate()
 
-    const [contactExist, setContactExist] = useState("");
-    const [passwordExist, setPasswordExist] = useState("");
+    const [contactExist, setContactExist] = useState(null);
+    const [passwordExist, setPasswordExist] = useState(null);
 
         const add = (e) => {
+          if(contactExist && passwordExist){
           e.preventDefault()
           e.target.value = "Logging In ..."
           e.target.disabled = true
@@ -39,6 +40,10 @@ const Login = () => {
             e.target.disabled = false
           })
         }
+        else{
+          alert('Please fill all the fields')
+        }
+      }
 
   return (
     <LogIn>
