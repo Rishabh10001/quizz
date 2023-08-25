@@ -7,7 +7,7 @@ import Registration from "./components/signup";
 import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
 import { useEffect } from "react";
-
+// import QuizList from "/quizList"
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
 import QuizDisplay from "./components/quizDisplay";
@@ -48,6 +48,6 @@ const App = () => {
       </Routes>
       <Footer/>
     </BrowserRouter>
-  );
-};
+  )
+}
 export default App
