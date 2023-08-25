@@ -9,15 +9,12 @@ const CreateQuiz = () => {
 
     const [title, setTitle] = useState(null)
     const [description, setDescription] = useState(null);
-    // const [duration, setDuration] = useState(0)
-    
     const navigate = useNavigate();
     const addQuiz = (e) =>{
         if(title && description){
         e.preventDefault()
         e.target.value = "Creating Quiz ..."
         e.target.disabled = true
-        // let quizes = localStorage.getItem("QUIZES") ? JSON.parse(localStorage.getItem("QUIZES")) : []
         const newQuiz = new Quiz(title,description)
         axios.post("https://quizattendace.onrender.com/api/quiz/add", newQuiz)
         .then(response => {
@@ -29,59 +26,58 @@ const CreateQuiz = () => {
             e.target.disabled = false
             setTitle("")
             setDescription("")
-            // setDuration(0)
         })
         navigate("/question-form")
     }
-    else{
-        alert("Field(s) empty")
-    }
-        // quizes.push(newQuiz)
-        // localStorage.setItem("QUIZES", JSON.stringify(quizes))
+        else{
+            alert("Field(s) empty")
+        }
     }
 
-    // const addQuestion = () => {
-    //     let quizes = localStorage.getItem("QUIZES") ? navigate("/question-form") : alert("No existing quizes")
-    // }
     const addQuestion = () => {
         navigate("/question-form")
     }
     
-    
-  return (
-    <CreateQuizStyle>
-    <h2>Create Quiz</h2>
-    <div className="createquiz">
-    <form action="">
-        <input 
-            type="text" 
-            placeholder='Title of Quiz'
-            required
-            onChange={(e) => setTitle(e.target.value)}
-        />
-        <input 
-            type="text"
-            placeholder='Description'
-            required
-            onChange={(e) => setDescription(e.target.value)} 
-        />
-        <input 
-            type="button"
-            className='Button' 
-            value="Create Quiz"
-            onClick={addQuiz}
-        />
-        <label>Add questions to existing quiz ?</label>
-        <input 
-            type="button"
-            className='Button' 
-            value="Add Question"
-            onClick={addQuestion}
-        />
-    </form>
-    </div>
-    </CreateQuizStyle>
-  )
+    return (
+        <CreateQuizStyle>
+        <h2>Create Quiz</h2>
+        <div className="createquiz">
+        <form action="">
+            <input 
+                type="text" 
+                placeholder='Title of Quiz'
+                required
+                onChange={(e) => setTitle(e.target.value)}
+                />
+            <input 
+                type="text"
+                placeholder='Description'
+                required
+                onChange={(e) => setDescription(e.target.value)} 
+                />
+            <input 
+                type="button"
+                className='Button' 
+                value="Create Quiz"
+                onClick={addQuiz}
+                />
+            <label>Add questions to existing quiz ?</label>
+            <input 
+                type="button"
+                className='Button' 
+                value="Add Question"
+                onClick={addQuestion}
+                />
+        </form>
+        </div>
+        </CreateQuizStyle>
+    )
 }
 
 export default CreateQuiz
+
+// const addQuestion = () => {
+    //     let quizes = localStorage.getItem("QUIZES") ? navigate("/question-form") : alert("No existing quizes")
+    // }
+// quizes.push(newQuiz)
+// localStorage.setItem("QUIZES", JSON.stringify(quizes))
