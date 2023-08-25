@@ -7,7 +7,7 @@ import Registration from "./components/signup";
 import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
 import { useEffect } from "react";
-
+// import QuizList from "/quizList"
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
 import QuizDisplay from "./components/quizDisplay";
@@ -42,11 +42,11 @@ const App = () => {
         <Route path="/question-form" element = {<QuestionForm  />} />
         <Route path="/create-quiz" element = { <CreateQuiz />} />
         <Route path="/quizes" element = {<Quizes/> }/>
-        {/* <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/> */}
-        <Route path= "/quizDisplay" element ={ <QuizDisplay/> } />
+        {/* <Route path="/quizList" element = {<QuizList />} /> */}
+        <Route path= "/quizDisplay" element ={ <QuizDisplay/> } />55
       </Routes>
       <Footer/>
     </BrowserRouter>
-  );
-};
+  )
+}
 export default App

@@ -20,12 +20,11 @@ const Quizes = () => {
     <QuizesStyle>
       <div className='QuizContainer'>
         {quizes.map(quiz => (
-          <button key={quiz.id} onClick={() => setSelectedQuiz(quiz)}>
+          <button className='Button' key={quiz.id} onClick={() => setSelectedQuiz(quiz)}>
             {quiz.title}
           </button>
         ))}
       </div>
-
       {selectedQuiz && (
         <div className='SelectedQuiz'>   
           <QuizDisplay quizId={selectedQuiz.id}/>                  
