@@ -1,14 +1,14 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-import DisplayStyle from './style';
 
-const QuizDisplay = ({quizId}) => {
-  // const [quizess,setQuizess] = useState([])
+const QuizDisplay = () => {
 
   const [questions, setQuestions] = useState([])
   const [currentIdx, setCurrentIdx] = useState(0);
-  const[selectedOption,setSelectedOption] = useState(null);
+  const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
+  const param = useParams()
+  //console.log(param)
 
   // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
   // .then(response => {
@@ -29,7 +29,7 @@ const QuizDisplay = ({quizId}) => {
 
   useEffect(() => {
     if(quizes && quizes.length){
-      const indexMatch = quizes.findIndex(q => q.id === quizId)
+      const indexMatch = quizes.findIndex(q => q.id === param.id)
       setQuestions(quizes[indexMatch].ques)
     }
     
@@ -42,50 +42,58 @@ const nextQuestion = () => {
   }
 }
 
-const handleSubmit = () => {
+// const handleSubmit = () => {
+//   alert("submit");
+// }
+
+const handleSubmit = () =>{
+  //  const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
+  //  const answers = []
+  //  for (let idx = 0; idx < questions.length; idx++) {
+  //   const question = questions[idx]
+  //   const selected = selectedOption[idx + 1]
+  //   answers.push({
+  //     questionId: question.id,
+  //     selectedOption: selected,
+  //   });
+  //  }
+
+  //  const result = {
+
+  //   studentcontact : studentcontact,
+  //   quizId : param.id,
+  //   answers : answers,
+
+  //   }
+   
+
+  //  axios.post('https://quizattendace.onrender.com/api/quiz/evaluate',result)
+  //  .then(response => {
+  //   console.log('Result:', response.data)
+  //  })
+  //  .catch(console.log)
+
   alert("submit");
+
 }
   
   return (
     <DisplayStyle>
     <div className='quiz-container'>
     
-    {questions.length > 0 && currentIdx <= questions.length - 1 && (
-    <div>
-      <div className='Question'>
-        {questions[currentIdx].ques}
-      </div>
-    {questions[currentIdx].ans.map((option,idx) => (
-    <div key={idx}>
-      <label>
-        <input 
-          type='radio'
-          onChange={() => setSelectedOption(option)}
-          checked = {selectedOption === option}
-        />
-        {option}
-      </label>
-    </div>)
-    )}
-    {currentIdx < questions.length -1 && (
-    <button
-      className='Button'
-      onClick={nextQuestion} 
-      disabled = {!selectedOption}>
-        Next
-    </button>)}
+  {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
+  {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
+    onChange={() => setSelectedOption(option)}
+    checked = {selectedOption === option}
+  />{option}</label></div>)
+ )}
+ 
+ {currentIdx < questions.length -1 && (<button onClick={nextQuestion} disabled = {!selectedOption}>Next</button>)}
   </div>)}
   
-    {currentIdx === questions.length - 1 && (
-    <div>
-      <button 
-        className='Button'
-        onClick={handleSubmit}>
-          Submit
-      </button>
-  </div>)}
-  </div>
-  </DisplayStyle>
+    {currentIdx === questions.length - 1 && (<div><button onClick={handleSubmit}>Submit</button></div>)}
+    </div>
+    </DisplayStyle>
   )
 }
 

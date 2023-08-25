@@ -3,10 +3,12 @@ import axios from 'axios';
 
 import QuizesStyle from './style';
 import QuizDisplay from '../quizDisplay';
+import { useNavigate } from 'react-router-dom';
 
 const Quizes = () => {
   const [quizes, setQuizes] = useState([]);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const navigate = useNavigate()
   
 
   useEffect(() => {
@@ -20,14 +22,14 @@ const Quizes = () => {
     <QuizesStyle>
       <div className='QuizContainer'>
         {quizes.map(quiz => (
-          <button className='Button' key={quiz.id} onClick={() => setSelectedQuiz(quiz)}>
+          <button className='Button' key={quiz.id} onClick={() => navigate(`quizzes/${quiz.id}`)}>
             {quiz.title}
           </button>
         ))}
       </div>
       {selectedQuiz && (
         <div className='SelectedQuiz'>   
-          <QuizDisplay quizId={selectedQuiz.id}/>                  
+          <QuizDisplay />                  
         </div>
       )}
     </QuizesStyle>
