@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 
-const QuizDisplay = () => {3
+const QuizDisplay = ({quizId}) => {
   // const [quizess,setQuizess] = useState([])
-  //const [questions, setQuestions] = useState([])
+
+  const [questions, setQuestions] = useState([])
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const[selectedOption,setSelectedOption] = useState(null);
 
   // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
   // .then(response => {
@@ -11,22 +14,41 @@ const QuizDisplay = () => {3
     
   // })
   // .catch(console.log)
+  
+  useEffect(() => {
+    axios.get(`https://quiz-back-kqit.onrender.com/api/quiz/getQuestions/${quizId}`)         
+  .then(response => {
+    setQuestions(response.data)
+  })
+      .catch(error => console.error('Error fetching quizzes:', error));
+      console.log(questions)
+  }, [quizId]);
 
-    
- 
-  // {QuizDisplay}
+const nextQuestion = () => {
+  if(currentIdx < questions.length - 1) {
+    setCurrentIdx(currentIdx + 1);
+    setSelectedOption(null);                   
+  }
+}
 
-
+const handleSubmit = () => {
+  alert("submit");
+}
+  
   return (
     <div className='quiz-container'>
-      {/* <span className='active-question-no '> { currentQuestion+ 1}</span> <span className='total-question'>/{questions.length}</span> */}
-      
-      {/* quizess.map(quiz => {if(quiz.id==="quiz-1"){
-    const questions =quiz.ques
-    console.log("Questions:" + questions);
-}}
-  ) */}
-      
+    
+  {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
+  {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
+    onChange={() => setSelectedOption(option)}
+    checked = {selectedOption === option}
+  />{option}</label></div>)
+ )}
+ 
+ {currentIdx < questions.length -1 && (<button onClick={nextQuestion} disabled = {!selectedOption}>Next</button>)}
+  </div>)}
+  
+    {currentIdx === questions.length - 1 && (<div><button onClick={handleSubmit}>Submit</button></div>)}
     </div>
   )
 }
