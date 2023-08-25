@@ -49,11 +49,11 @@ const QuestionForm = () => {
         .finally(() => {
             e.target.value = "Add Question"
             e.target.disabled = false
-            setQuestion(null)
-            setOption1(null)
-            setOption2(null)
-            setOption3(null)
-            setOption4(null)
+            setQuestion("")
+            setOption1("")
+            setOption2("")
+            setOption3("")
+            setOption4("")
             setAnswer("")
         })
     }
