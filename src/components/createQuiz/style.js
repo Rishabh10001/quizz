@@ -60,7 +60,7 @@ h2{
       font-family:'Poppins', sans-serif;
       font-style: normal;
       font-weight: bold;
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .Button{

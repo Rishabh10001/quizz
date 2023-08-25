@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SignUp = styled.section`
-margin: 3rem auto;
+margin: 2.5rem auto;
 padding: 40px;
 font-family: Arial,sans-serif;
 width: fit-content;
@@ -16,6 +16,11 @@ h2{
   font-size: 1.5rem;
   text-align: center;
   margin-top: 0rem;
+}
+
+p{
+  margin: auto;
+  text-align: center;
 }
 
 .SignUpContainer{
