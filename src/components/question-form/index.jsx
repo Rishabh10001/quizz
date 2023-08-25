@@ -17,7 +17,10 @@ const QuestionForm = () => {
     
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/quiz/read')
-        .then(res => setQuizes(res.data))
+        .then(res => {
+            setQuizes(res.data)
+            setQuiz(res.data[0])
+        })
     },[])
     
     const [quiz, setQuiz] = useState(quizes[0]);
