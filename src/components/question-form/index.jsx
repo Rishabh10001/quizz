@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
 import QuesForm from './style';
 import axios from 'axios';
@@ -14,7 +14,12 @@ const QuestionForm = () => {
     const [answer, setAnswer] = useState(0);
     const [quizes, setQuizes] = useState([])
     // const quizes = JSON.parse(localStorage.getItem("QUIZES"))
-    
+    const navigated = useNavigate();
+
+    const AddQuiz = () => {
+        navigated('/create-quiz');
+    }
+
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/quiz/read')
         .then(res => {
@@ -136,6 +141,12 @@ const QuestionForm = () => {
             className='Button'
             value='Add Question'
             onClick={add}
+        />
+        <input 
+            type="button" 
+            className='Button'
+            value='Create New Quiz'
+            onClick={ AddQuiz }
         />
       </form>
       </div>
