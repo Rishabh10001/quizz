@@ -60,7 +60,7 @@ const QuestionForm = () => {
         })
     }
     else{
-        alert("Fields are left empty");
+        alert("Field(s) empty");
     }
         
         // const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
