@@ -13,7 +13,6 @@ const QuestionForm = () => {
     const [option4, setOption4] = useState(null);
     const [answer, setAnswer] = useState(0);
     const [quizes, setQuizes] = useState([])
-    // const quizes = JSON.parse(localStorage.getItem("QUIZES"))
     const navigated = useNavigate();
 
     const AddQuiz = () => {
@@ -29,8 +28,7 @@ const QuestionForm = () => {
     },[])
     
     const [quiz, setQuiz] = useState(quizes[0]);
-    // console.log(quizes)
-    // const navigate = useNavigate();
+    
     
     const add = (e) =>{
         if(question && option1 && option2 && option3 && option4 && answer){
@@ -62,35 +60,8 @@ const QuestionForm = () => {
     else{
         alert("Field(s) empty");
     }
+    console.log(quizes);
         
-        // const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
-        // const indexMatch = quizes.findIndex(q => q.id === quiz.id);
-        // quizes[indexMatch] = updatedQuiz;
-/// changes from here
-        
-        // localStorage.setItem("QUIZES", JSON.stringify(quizes));
-        console.log(quizes);
-        // navigate("/question-form")
-
-        // const indexMatch = quizes.findIndex(q => q.id === quiz.id)
-        // quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
-        // localStorage.setItem("QUIZES", quizes)
-
-        // const newQuestion = {
-        //     question,
-        //     option1,
-        //     option2,
-        //     option3,
-        //     option4,
-        //     answer
-        // }
-        // addQuestion(newQuestion)
-        
-
-        // localStorage.setItem("QUESTIONS1", JSON.stringify({[newQuestion.question] : newQuestion}))
-        // localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
-        // console.log(newQuestion.question);
-        // navigate("/questions")
     }
 
   return (

@@ -1,26 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { useState } from "react";
 import QuestionForm from "./components/question-form";
-import Questions from "./components/questions";
 import Header from "./components/header";
 import Registration from "./components/signup";
 import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
 import { useEffect } from "react";
-// import QuizList from "/quizList"
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
 import QuizDisplay from "./components/quizDisplay";
 
 
-// const quizzes = [
-//   {
-//     name: 'Quiz 1',
-//     topic: 'HTML',
-//     numQuestions: 10,
-//     time: 15
-//   }
-// ];
 
 const App = () => {
 
@@ -38,12 +28,10 @@ const App = () => {
       <Routes>
         <Route path="/" element = {<Login />} />
         <Route path="/signup" element = {<Registration />} />
-        <Route path="/questions" element = {<Questions questions={questions} />} />
         <Route path="/question-form" element = {<QuestionForm  />} />
         <Route path="/create-quiz" element = { <CreateQuiz />} />
         <Route path="/quizes" element = {<Quizes/> }/>
-        {/* <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/> */}
-        <Route path= "/quizDisplay" element ={ <QuizDisplay/> } />
+       {/* <Route path= "/quizDisplay" element ={ <QuizDisplay/> } /> */}
         <Route path ="/quizes/quizzes/:id" element = {<QuizDisplay/>}/>
       </Routes>
       <Footer/>

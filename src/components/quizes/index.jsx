@@ -27,11 +27,11 @@ const Quizes = () => {
           </button>
         ))}
       </div>
-      {selectedQuiz && (
+      {/* {selectedQuiz && (
         <div className='SelectedQuiz'>   
           <QuizDisplay />                  
         </div>
-      )}
+      )} */}
     </QuizesStyle>
   );
 };
