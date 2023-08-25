@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Question } from '../../modals/Question';
 import QuesForm from './style';
 import axios from 'axios';
 
 const QuestionForm = () => {
 
-    const [question, setQuestion] = useState("");
-    const [option1, setOption1] = useState("");
-    const [option2, setOption2] = useState("");
-    const [option3, setOption3] = useState("");
-    const [option4, setOption4] = useState("");
+    const [question, setQuestion] = useState(null);
+    const [option1, setOption1] = useState(null);
+    const [option2, setOption2] = useState(null);
+    const [option3, setOption3] = useState(null);
+    const [option4, setOption4] = useState(null);
     const [answer, setAnswer] = useState(0);
     const [quizes, setQuizes] = useState([])
     // const quizes = JSON.parse(localStorage.getItem("QUIZES"))
-    
+    const navigated = useNavigate();
+
+    const AddQuiz = () => {
+        navigated('/create-quiz');
+    }
+
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/quiz/read')
         .then(res => {
@@ -28,7 +33,7 @@ const QuestionForm = () => {
     // const navigate = useNavigate();
     
     const add = (e) =>{
-
+        if(question && option1 && option2 && option3 && option4 && answer){
         const newQuestion = new Question(question, [option1, option2, option3, option4], +answer, quiz.id);
         
         const quest = {
@@ -46,13 +51,17 @@ const QuestionForm = () => {
         .finally(() => {
             e.target.value = "Add Question"
             e.target.disabled = false
-            setQuestion("")
-            setOption1("")
-            setOption2("")
-            setOption3("")
-            setOption4("")
+            setQuestion(null)
+            setOption1(null)
+            setOption2(null)
+            setOption3(null)
+            setOption4(null)
             setAnswer("")
         })
+    }
+    else{
+        alert("Fields are left empty");
+    }
         
         // const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
         // const indexMatch = quizes.findIndex(q => q.id === quiz.id);
@@ -136,6 +145,12 @@ const QuestionForm = () => {
             className='Button'
             value='Add Question'
             onClick={add}
+        />
+        <input 
+            type="button" 
+            className='Button'
+            value='Create New Quiz'
+            onClick={ AddQuiz }
         />
       </form>
       </div>
