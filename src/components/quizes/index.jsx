@@ -1,40 +1,38 @@
-import {useEffect, useState } from 'react'
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import QuizesStyle from './style'
+import QuizesStyle from './style';
+import QuizDisplay from '../quizDisplay';
 
 const Quizes = () => {
-
-  const [quizes, setQuizes] = useState([])
-  const [quiz, setQuiz] = useState(quizes[0]);
+  const [quizes, setQuizes] = useState([]);
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
+  
 
   useEffect(() => {
-      axios.get('https://quizattendace.onrender.com/api/quiz/read')
+    axios.get('https://quizattendace.onrender.com/api/quiz/read')
       .then(res => setQuizes(res.data))
-  },[])
-
+      .catch(error => console.error('Error fetching quizzes:', error));
+  }, []);
+  
 
   return (
     <QuizesStyle>
-    <div className='QuizContainer'>
-        {/* <input
-            type='button'
-            value={ quiz.title }
-        /> */}
-        {/* <input
-            type='button'
-            value= {quiz.title}
-        /> */}
-         <select onChange={e => setQuiz(JSON.parse(e.target.value))}>
-            {
-                quizes.map(quiz => <option key={quiz.id} value={JSON.stringify(quiz)}>{quiz.title}</option>)
-            }
-        </select>
+      <div className='QuizContainer'>
+        {quizes.map(quiz => (
+          <button key={quiz.id} onClick={() => setSelectedQuiz(quiz)}>
+            {quiz.title}
+          </button>
+        ))}
+      </div>
 
-    </div>
+      {selectedQuiz && (
+        <div className='SelectedQuiz'>   
+          <QuizDisplay quizId={selectedQuiz.id}/>                  
+        </div>
+      )}
     </QuizesStyle>
-  )
-}
+  );
+};
 
-export default Quizes
+export default Quizes;

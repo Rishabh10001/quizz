@@ -1,24 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
+import axios from 'axios'
 
-const QuizDisplay = () => {
-  const[currentQuestion,setCurrentQuestion] = useState();
+const QuizDisplay = ({quizId}) => {
+  // const [quizess,setQuizess] = useState([])
 
+  const [questions, setQuestions] = useState([])
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const[selectedOption,setSelectedOption] = useState(null);
 
-  if (currentQuestion !=questions.length-1){
-    setCurrentQuestion((prev ) => prev+1)
-   }
-   else {
-    setCurrentQuestion(0)
-   }
+  // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
+  // .then(response => {
+  //   setQuizess(response.data)
     
+  // })
+  // .catch(console.log)
+  
+  useEffect(() => {
+    axios.get(`https://quiz-back-kqit.onrender.com/api/quiz/getQuestions/${quizId}`)         
+  .then(response => {
+    setQuestions(response.data)
+  })
+      .catch(error => console.error('Error fetching quizzes:', error));
+      console.log(questions)
+  }, [quizId]);
 
+const nextQuestion = () => {
+  if(currentIdx < questions.length - 1) {
+    setCurrentIdx(currentIdx + 1);
+    setSelectedOption(null);                   
+  }
+}
 
+const handleSubmit = () => {
+  alert("submit");
+}
+  
   return (
     <div className='quiz-container'>
-      <span className='active-question-no '> { currentQuestion+ 1}</span> <span className='total-question'>/{questions.length}</span>
-      
-        
-      
+    
+  {questions.length > 0 && currentIdx <= questions.length - 1 && (<div><h1>{questions[currentIdx].ques}</h1>
+  {questions[currentIdx].ans.map((option,idx) => (<div key={idx}><label><input type='radio'
+    onChange={() => setSelectedOption(option)}
+    checked = {selectedOption === option}
+  />{option}</label></div>)
+ )}
+ 
+ {currentIdx < questions.length -1 && (<button onClick={nextQuestion} disabled = {!selectedOption}>Next</button>)}
+  </div>)}
+  
+    {currentIdx === questions.length - 1 && (<div><button onClick={handleSubmit}>Submit</button></div>)}
     </div>
   )
 }

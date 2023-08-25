@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
+import QuizDisplay from "./components/quizDisplay";
 
 
 // const quizzes = [
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/create-quiz" element = { <CreateQuiz />} />
         <Route path="/quizes" element = {<Quizes/> }/>
         {/* <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/> */}
+        <Route path= "/quizDisplay" element ={ <QuizDisplay/> } />
       </Routes>
       <Footer/>
     </BrowserRouter>
