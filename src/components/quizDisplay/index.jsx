@@ -7,6 +7,7 @@ const QuizDisplay = ({quizId}) => {
   const [questions, setQuestions] = useState([])
   const [currentIdx, setCurrentIdx] = useState(0);
   const[selectedOption,setSelectedOption] = useState(null);
+  const [quizes , setQuizes] = useState([])
 
   // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
   // .then(response => {
@@ -16,13 +17,22 @@ const QuizDisplay = ({quizId}) => {
   // .catch(console.log)
   
   useEffect(() => {
-    axios.get(`https://quiz-back-kqit.onrender.com/api/quiz/getQuestions/${quizId}`)         
-  .then(response => {
-    setQuestions(response.data)
-  })
-      .catch(error => console.error('Error fetching quizzes:', error));
+    axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
+    .then(response => {
+      setQuizes(response.data)
+      
+    })
+    .catch(error => console.error('Error fetching quizzes:', error));
       console.log(questions)
-  }, [quizId]);
+  }, []);
+
+  useEffect(() => {
+    if(quizes && quizes.length){
+      const indexMatch = quizes.findIndex(q => q.id === quizId)
+      setQuestions(quizes[indexMatch].ques)
+    }
+    
+  },[quizes])
 
 const nextQuestion = () => {
   if(currentIdx < questions.length - 1) {
