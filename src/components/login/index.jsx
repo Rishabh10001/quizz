@@ -27,6 +27,8 @@ const Login = () => {
               else if(response.data.user.role === "student"){
                 navigate("/quizes")
               }
+              localStorage.setItem("loggedInUser",JSON.stringify(response.data.user))
+              console.log(JSON.parse(localStorage.getItem("loggedInUser")).contact)
             }
             else{
             alert("Invalid user")
