@@ -7,18 +7,18 @@ import axios from 'axios';
 
 const CreateQuiz = () => {
 
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState(null)
+    const [description, setDescription] = useState(null);
     // const [duration, setDuration] = useState(0)
     
     const navigate = useNavigate();
     const addQuiz = (e) =>{
+        if(title && description){
         e.preventDefault()
         e.target.value = "Creating Quiz ..."
         e.target.disabled = true
         // let quizes = localStorage.getItem("QUIZES") ? JSON.parse(localStorage.getItem("QUIZES")) : []
         const newQuiz = new Quiz(title,description)
-
         axios.post("https://quizattendace.onrender.com/api/quiz/add", newQuiz)
         .then(response => {
             console.log(response)
@@ -31,9 +31,13 @@ const CreateQuiz = () => {
             setDescription("")
             // setDuration(0)
         })
+        navigate("/question-form")
+    }
+    else{
+        alert("Field(s) empty")
+    }
         // quizes.push(newQuiz)
         // localStorage.setItem("QUIZES", JSON.stringify(quizes))
-        navigate("/question-form")
     }
 
     // const addQuestion = () => {
@@ -61,11 +65,6 @@ const CreateQuiz = () => {
             required
             onChange={(e) => setDescription(e.target.value)} 
         />
-        {/* <input 
-            type="number" 
-            placeholder='duration'
-            onChange={(e) => setDuration(e.target.value)}
-        /> */}
         <input 
             type="button"
             className='Button' 

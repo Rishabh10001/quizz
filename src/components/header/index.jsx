@@ -6,6 +6,7 @@ const Header = () => {
   const navigator = useNavigate();
 
   const handleLogout = () => {
+    localStorage.clear()
     navigator('/');
   };
 
