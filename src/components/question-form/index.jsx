@@ -36,10 +36,23 @@ const QuestionForm = () => {
             question :newQuestion.question ,
             options: newQuestion.options
         }
+        e.preventDefault()
+        e.target.value = "Adding Question ..."
+        e.target.disabled = true
         axios.post("https://quizattendace.onrender.com/api/ques/add", newQuestion)
         .then(response => {
             console.log(response)
         }).catch(console.log)
+        .finally(() => {
+            e.target.value = "Add Question"
+            e.target.disabled = false
+            setQuestion("")
+            setOption1("")
+            setOption2("")
+            setOption3("")
+            setOption4("")
+            setAnswer("")
+        })
         
         // const updatedQuiz = { ...quiz, ques: [...quiz.ques, quest] };
         // const indexMatch = quizes.findIndex(q => q.id === quiz.id);
@@ -48,6 +61,7 @@ const QuestionForm = () => {
         
         // localStorage.setItem("QUIZES", JSON.stringify(quizes));
         console.log(quizes);
+        // navigate("/question-form")
 
         // const indexMatch = quizes.findIndex(q => q.id === quiz.id)
         // quizes[indexMatch] = new Question(question, [option1, option2, option3,option4], answer)
