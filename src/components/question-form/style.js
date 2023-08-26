@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const QuesForm = styled.section`
 margin: 8px auto;
-padding: 2px 20px 0px 20px;
+padding: 5px 40px 0px 40px;
 font-family: Arial,sans-serif;
 width: fit-content;
 border-radius: 0.8rem;

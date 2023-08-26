@@ -10,8 +10,6 @@ const QuizDisplay = () => {
   const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
   const param = useParams()
-
-  //console.log(param)
   
   useEffect(() => {
     axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
@@ -36,7 +34,7 @@ const nextQuestion = () => {
   }
 }
 
-const handleSubmit = () => {
+const handleSubmit = () =>{
   alert("submit");
 }
 

@@ -10,8 +10,6 @@ import Footer from "./components/footer";
 import Quizes from "./components/quizes";
 import QuizDisplay from "./components/quizDisplay";
 
-
-
 const App = () => {
 
     const [questions, setQuestions] = useState([]);
@@ -30,12 +28,10 @@ const App = () => {
         <Route path="/signup" element = {<Registration />} />
         <Route path="/question-form" element = {<QuestionForm  />} />
         <Route path="/create-quiz" element = { <CreateQuiz />} />
-        <Route path="/quizes" element = {<Quizes/> }/>
-        {/* <Route path="/quiz-list" element = {<quizList quizzes={quizzes} />}/> */}
-        {/* <Route path= "/quizDisplay" element ={ <QuizDisplay/> } /> */}
-        <Route path ="/quizes/:id" element = {<QuizDisplay/>}/>
+        <Route path="/quizes" element = {<Quizes /> }/>
+        <Route path ="/quizes/:id" element = {<QuizDisplay />}/>
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   )
 }

@@ -28,6 +28,7 @@
         // console.log(newQuestion.question);
         // navigate("/questions")
 
+<<<<<<< HEAD
 
         /// --- quiz display ---- ////
         
@@ -63,3 +64,12 @@
 //    })
 //    .catch(console.log)
 // }
+=======
+        {/* {selectedQuiz && (
+        <div className='SelectedQuiz'>   
+          <QuizDisplay />                  
+        </div>
+      )} */}
+
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
+>>>>>>> ede2f3012678e0f5d64414b15690b1a7e78d829b
