@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import QuizesStyle from './style';
-import QuizDisplay from '../quizDisplay';
 import { useNavigate } from 'react-router-dom';
 
 const Quizes = () => {
   const [quizes, setQuizes] = useState([]);
-  const [selectedQuiz, setSelectedQuiz] = useState(null);
   const navigate = useNavigate()
   
-
   useEffect(() => {
     axios.get('https://quizattendace.onrender.com/api/quiz/read')
       .then(res => setQuizes(res.data))
@@ -27,11 +24,6 @@ const Quizes = () => {
           </button>
         ))}
       </div>
-      {/* {selectedQuiz && (
-        <div className='SelectedQuiz'>   
-          <QuizDisplay />                  
-        </div>
-      )} */}
     </QuizesStyle>
   );
 };

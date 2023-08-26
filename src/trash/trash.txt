@@ -27,3 +27,11 @@
         // localStorage.setItem(newQuestion.question,JSON.stringify(newQuestion));
         // console.log(newQuestion.question);
         // navigate("/questions")
+
+        {/* {selectedQuiz && (
+        <div className='SelectedQuiz'>   
+          <QuizDisplay />                  
+        </div>
+      )} */}
+
+  const [selectedQuiz, setSelectedQuiz] = useState(null);

@@ -10,14 +10,6 @@ const QuizDisplay = () => {
   const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
   const param = useParams()
-  //console.log(param)
-
-  // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
-  // .then(response => {
-  //   setQuizess(response.data)
-    
-  // })
-  // .catch(console.log)
   
   useEffect(() => {
     axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
@@ -42,40 +34,8 @@ const nextQuestion = () => {
   }
 }
 
-// const handleSubmit = () => {
-//   alert("submit");
-// }
-
 const handleSubmit = () =>{
-
-  //  const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
-  //  const answers = []
-  //  for (let idx = 0; idx < questions.length; idx++) {
-  //   const question = questions[idx]
-  //   const selected = selectedOption[idx + 1]
-  //   answers.push({
-  //     questionId: question.id,
-  //     selectedOption: selected,
-  //   });
-  //  }
-
-  //  const result = {
-
-  //   studentcontact : studentcontact,
-  //   quizId : param.id,
-  //   answers : answers,
-
-  //   }
-   
-
-  //  axios.post('https://quizattendace.onrender.com/api/quiz/evaluate',result)
-  //  .then(response => {
-  //   console.log('Result:', response.data)
-  //  })
-  //  .catch(console.log)
-
   alert("submit");
-
 }
   
   return (
