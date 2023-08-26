@@ -22,7 +22,7 @@ const Quizes = () => {
     <QuizesStyle>
       <div className='QuizContainer'>
         {quizes.map(quiz => (
-          <button className='Button' key={quiz.id} onClick={() => navigate(`quizzes/${quiz.id}`)}>
+          <button className='Button' key={quiz.id} onClick={() => navigate(`${quiz.id}`)}>
             {quiz.title}
           </button>
         ))}
