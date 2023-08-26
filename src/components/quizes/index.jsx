@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import QuizesStyle from './style';
-import QuizDisplay from '../quizDisplay';
+//import QuizDisplay from '../quizDisplay';
 import { useNavigate } from 'react-router-dom';
 
 const Quizes = () => {
   const [quizes, setQuizes] = useState([]);
-  const [selectedQuiz, setSelectedQuiz] = useState(null);
+  //const [selectedQuiz, setSelectedQuiz] = useState(null);
   const navigate = useNavigate()
   
 
@@ -22,7 +22,7 @@ const Quizes = () => {
     <QuizesStyle>
       <div className='QuizContainer'>
         {quizes.map(quiz => (
-          <button className='Button' key={quiz.id} onClick={() => navigate(`quizzes/${quiz.id}`)}>
+          <button className='Button' key={quiz.id} onClick={() => navigate(`${quiz.id}`)}>
             {quiz.title}
           </button>
         ))}

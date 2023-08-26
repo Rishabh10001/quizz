@@ -10,14 +10,8 @@ const QuizDisplay = () => {
   const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
   const param = useParams()
-  //console.log(param)
 
-  // axios.get('https://quiz-back-kqit.onrender.com/api/quiz/read')
-  // .then(response => {
-  //   setQuizess(response.data)
-    
-  // })
-  // .catch(console.log)
+  //console.log(param)
   
   useEffect(() => {
     axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
@@ -31,7 +25,7 @@ const QuizDisplay = () => {
   useEffect(() => {
     if(quizes && quizes.length){
       const indexMatch = quizes.findIndex(q => q.id === param.id)
-      setQuestions(quizes[indexMatch].ques)
+      setQuestions(quizes[indexMatch].ques)      //dount ki ya ha kya pass ho rh ah basically
     }  
   },[quizes])
 
@@ -42,41 +36,11 @@ const nextQuestion = () => {
   }
 }
 
-// const handleSubmit = () => {
-//   alert("submit");
-// }
-
-const handleSubmit = () =>{
-
-  //  const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
-  //  const answers = []
-  //  for (let idx = 0; idx < questions.length; idx++) {
-  //   const question = questions[idx]
-  //   const selected = selectedOption[idx + 1]
-  //   answers.push({
-  //     questionId: question.id,
-  //     selectedOption: selected,
-  //   });
-  //  }
-
-  //  const result = {
-
-  //   studentcontact : studentcontact,
-  //   quizId : param.id,
-  //   answers : answers,
-
-  //   }
-   
-
-  //  axios.post('https://quizattendace.onrender.com/api/quiz/evaluate',result)
-  //  .then(response => {
-  //   console.log('Result:', response.data)
-  //  })
-  //  .catch(console.log)
-
+const handleSubmit = () => {
   alert("submit");
-
 }
+
+
   
   return (
     <DisplayStyle>
@@ -106,8 +70,10 @@ const handleSubmit = () =>{
         onClick={nextQuestion}
         disabled = {!selectedOption}>
           Next
-      </button>)}
-    </div>)}
+      </button>
+      )}
+    </div>
+    )}
       {currentIdx === questions.length - 1 && (
       <div>
         <button 
