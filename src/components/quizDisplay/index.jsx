@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import DisplayStyle from './style'
+
 
 const QuizDisplay = () => {
 
@@ -10,6 +11,8 @@ const QuizDisplay = () => {
   const [selectedOption,setSelectedOption] = useState(null);
   const [quizes , setQuizes] = useState([])
   const param = useParams()
+  const navigate = useNavigate()
+
   
   useEffect(() => {
     axios.get(`https://quizattendace.onrender.com/api/quiz/read`)         
@@ -23,7 +26,7 @@ const QuizDisplay = () => {
   useEffect(() => {
     if(quizes && quizes.length){
       const indexMatch = quizes.findIndex(q => q.id === param.id)
-      setQuestions(quizes[indexMatch].ques)      //dount ki ya ha kya pass ho rh ah basically
+      setQuestions(quizes[indexMatch].ques)      
     }  
   },[quizes])
 
@@ -34,9 +37,33 @@ const nextQuestion = () => {
   }
 }
 
-const handleSubmit = () =>{
-  alert("submit");
-}
+
+   const handleSubmit = () =>{
+    console.log(JSON.parse(localStorage.getItem("loggedInUser")));
+   const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
+   const user = JSON.parse(localStorage.getItem("loggedInUser"))
+   const answers = {}
+
+  for (let idx = 0; idx < questions.length; idx++) {
+    const question = questions[idx];
+    answers[question.id] = selectedOption;
+  }
+
+   const result = {
+
+    contact : studentcontact,
+    quizId : param.id,
+    answers : answers,
+    }
+    console.log(result);
+   axios.post('https://quizattendace.onrender.com/api/quiz/evaluate',result)
+   .then(response => {
+    console.log('Result:', response.data)
+   })
+   .catch(console.log)
+    navigate(`/result/${user.id}`);      //for taking user id from localstorage
+  }
+
 
 
   
@@ -74,6 +101,7 @@ const handleSubmit = () =>{
     )}
       {currentIdx === questions.length - 1 && (
       <div>
+        
         <button 
           className='Button'
           onClick={handleSubmit}>
