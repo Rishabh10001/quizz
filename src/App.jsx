@@ -1,25 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { useState } from "react";
 import QuestionForm from "./components/question-form";
 import Header from "./components/header";
 import Registration from "./components/signup";
 import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
-import { useEffect } from "react";
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
 import QuizDisplay from "./components/quizDisplay";
 
 const App = () => {
-
-    const [questions, setQuestions] = useState([]);
-    const addQuestion = (question) =>{
-      setQuestions([...questions,question]);
-    };
-    useEffect(() => {
-      localStorage.setItem("QUESTIONS", JSON.stringify(questions));
-    },[questions]);
-
   return(
     <BrowserRouter>
       <Header />
