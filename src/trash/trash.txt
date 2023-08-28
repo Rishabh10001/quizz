@@ -28,10 +28,38 @@
         // console.log(newQuestion.question);
         // navigate("/questions")
 
-        {/* {selectedQuiz && (
-        <div className='SelectedQuiz'>   
-          <QuizDisplay />                  
-        </div>
-      )} */}
 
-  const [selectedQuiz, setSelectedQuiz] = useState(null);
+        /// --- quiz display ---- ////
+        
+        // const handleSubmit = () =>{
+
+//    const studentcontact = JSON.parse(localStorage.getItem("loggedInUser")).contact
+//    const answers = {}
+
+//   //  for (let idx = 0; idx < questions.length; idx++) {
+//   //   const question = questions[idx]
+//   //   const selected = selectedOption[idx + 1]
+
+//   //   answers.push({
+//   //     questionId: question.id,
+//   //     selectedOption: selected,
+//   //   });
+//   //  }
+
+//   for (let idx = 0; idx < questions.length; idx++) {
+//     const question = questions[idx];
+//     answers[question.id] = selectedOption;
+//   }
+
+//    const result = {
+
+//     studentcontact : studentcontact,
+//     quizId : param.id,
+//     answers : answers,
+//     }
+//    axios.post('https://quizattendace.onrender.com/api/quiz/evaluate',result)
+//    .then(response => {
+//     console.log('Result:', response.data)
+//    })
+//    .catch(console.log)
+// }

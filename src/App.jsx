@@ -6,9 +6,13 @@ import Login from "./components/login";
 import CreateQuiz from "./components/createQuiz";
 import Footer from "./components/footer";
 import Quizes from "./components/quizes";
+import Result from "./components/result";
 import QuizDisplay from "./components/quizDisplay";
 
 const App = () => {
+
+    
+
   return(
     <BrowserRouter>
       <Header />
@@ -19,6 +23,8 @@ const App = () => {
         <Route path="/create-quiz" element = { <CreateQuiz />} />
         <Route path="/quizes" element = {<Quizes /> }/>
         <Route path ="/quizes/:id" element = {<QuizDisplay />}/>
+        <Route path="/result/:userId" element = { <Result/>}/>
+
       </Routes>
       <Footer />
     </BrowserRouter>
