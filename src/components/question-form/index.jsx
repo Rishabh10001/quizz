@@ -68,62 +68,62 @@ const QuestionForm = () => {
     <QuesForm>
         <h2>Add Question</h2>
         <div className='QuestionFormContainer'>
-      <form>
-        <input 
-            type="text" 
-            placeholder='Enter the question'
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-        />
-        <input 
-            type="text" 
-            placeholder='Option 1'
-            value={option1}
-            onChange={(e) => setOption1(e.target.value)}
-        />
-        <input 
-            type="text" 
-            placeholder='Option 2'
-            value={option2}
-            onChange={(e) => setOption2(e.target.value)}
-        />
-        <input 
-            type="text" 
-            placeholder='Option 3'
-            value={option3}
-            onChange={(e) => setOption3(e.target.value)}
-        />
-        <input 
-            type="text" 
-            placeholder='Option 4'
-            value={option4}
-            onChange={(e) => setOption4(e.target.value)}
-        />
-        <select name="correctAnswer" id="correctAnswer"  onChange={(e) => setAnswer(e.target.value)}>
-            <option value="" disabled selected>--Choose Answer--</option>
-            <option value={1}>{option1}</option>
-            <option value={2}>{option2}</option>
-            <option value={3}>{option3}</option>
-            <option value={4}>{option4}</option>
-        </select>
-        <select onChange={e => setQuiz(JSON.parse(e.target.value))}>
-            {
-                quizes.map(quiz => <option key={quiz.id} value={JSON.stringify(quiz)}>{quiz.title}</option>)
-            }
-        </select>
-        <input 
-            type="button" 
-            className='Button'
-            value='Add Question'
-            onClick={add}
-        />
-        <input 
-            type="button" 
-            className='Button'
-            value='Create New Quiz'
-            onClick={ AddQuiz }
-        />
-      </form>
+        <form>
+            <input 
+                type="text" 
+                placeholder='Enter the question'
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='Option 1'
+                value={option1}
+                onChange={(e) => setOption1(e.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='Option 2'
+                value={option2}
+                onChange={(e) => setOption2(e.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='Option 3'
+                value={option3}
+                onChange={(e) => setOption3(e.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='Option 4'
+                value={option4}
+                onChange={(e) => setOption4(e.target.value)}
+            />
+            <select name="correctAnswer" id="correctAnswer"  onChange={(e) => setAnswer(e.target.value)}>
+                <option value="" disabled selected>--Choose Answer--</option>
+                <option value={1}>{option1}</option>
+                <option value={2}>{option2}</option>
+                <option value={3}>{option3}</option>
+                <option value={4}>{option4}</option>
+            </select>
+            <select onChange={e => setQuiz(JSON.parse(e.target.value))}>
+                {
+                    quizes.map(quiz => <option key={quiz.id} value={JSON.stringify(quiz)}>{quiz.title}</option>)
+                }
+            </select>
+            <input 
+                type="button" 
+                className='Button'
+                value='Add Question'
+                onClick={add}
+            />
+            <input 
+                type="button" 
+                className='Button'
+                value='Create New Quiz'
+                onClick={ AddQuiz }
+            />
+        </form>
       </div>
     </QuesForm>
   )

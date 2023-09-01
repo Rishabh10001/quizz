@@ -11,6 +11,7 @@ const Result =  () => {
     
     useEffect(() => {
    const res =  axios.get(`https://quizattendace.onrender.com/api/user/getCertificates/${userId.userId}`).then(response => {
+     console.log(result);
     setResult(response.data); })
 }, []);
    

@@ -10,9 +10,6 @@ import Result from "./components/result";
 import QuizDisplay from "./components/quizDisplay";
 
 const App = () => {
-
-    
-
   return(
     <BrowserRouter>
       <Header />

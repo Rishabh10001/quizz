@@ -9,8 +9,7 @@ border-radius: 0.8rem;
 display: flex;
 flex-direction: column;
 background-color: #fff;
-box-shadow: 3px 6px 4px rgba(0,0,0,0.3),
-            0px 8px 16px rgba(0,0,0,0.3);
+box-shadow: 3px 6px 4px rgba(0,0,0,0.3), 0px 8px 16px rgba(0,0,0,0.3);
 
 h2{
   font-size: 1.5rem;
